@@ -1,16 +1,21 @@
 ---
-
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Hero from "../components/Hero.astro";
+import PortfolioSection from "../components/PortfolioSection.astro";
+import LinksSection from "../components/LinksSection.astro";
+import FaceTracker from "../components/FaceTracker.astro";
+import Spacer from "../components/Spacer.astro";
+import Footer from "../components/Footer.astro";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout>
+	<Spacer className="h-6 md:h-24" />
+	<FaceTracker />
+	<Spacer className="h-4 md:h-6" />
+	<Hero />
+	<p id="projects"></p>
+	<Spacer className="h-6 md:h-40" />
+	<PortfolioSection />
+	<LinksSection />
+	<Footer />
+</BaseLayout>

@@ -1,0 +1,20 @@
+---
+const { basePath = "/faces/", debug = false, size = 256 } = Astro.props;
+---
+
+<script src="/scripts/face-tracker.js" defer></script>
+
+<div class="mx-auto flex justify-center">
+    <div
+        class="relative rounded-full shadow-inner overflow-hidden"
+        style={`width:${size}px; height:${size}px;`}
+    >
+        <!-- Face tracker -->
+        <div
+            class="face-tracker w-full h-full"
+            data-base-path={basePath}
+            data-debug={debug}
+        >
+        </div>
+    </div>
+</div>

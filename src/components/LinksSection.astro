@@ -1,0 +1,40 @@
+---
+import PillLink from "../components/PillLink.astro";
+import GitHubLogo from "../../public/images/logos/github.svg";
+import ItchLogo from "../../public/images/logos/itchio.svg";
+import MailLogo from "../../public/images/icons/mail.svg";
+import LinkedinLogo from "../../public/images/logos/linkedin.svg";
+---
+
+<section class="mb-32 flex justify-center" id="contact">
+    <div class="flex flex-wrap justify-center gap-4">
+        <PillLink
+            href="https://github.com/Modderjoch"
+            label="GitHub"
+            width="150px"
+            Logo={GitHubLogo}
+            behavior="new"
+        />
+        <PillLink
+            href="https://modderjoch.itch.io/"
+            label="Itch.io"
+            width="150px"
+            Logo={ItchLogo}
+            behavior="new"
+        />
+        <PillLink
+            href="https://www.linkedin.com/in/oebe/"
+            label="LinkedIn"
+            width="150px"
+            Logo={LinkedinLogo}
+            behavior="new"
+        />
+        <PillLink
+            href="mailto:o.rademaker@outlook.com"
+            label="Email me!"
+            width="150px"
+            Logo={MailLogo}
+            behavior="new"
+        />
+    </div>
+</section>

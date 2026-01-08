@@ -1,0 +1,51 @@
+@import "tailwindcss";
+
+html {
+    scroll-behavior: smooth;
+}
+
+@layer utilities {
+    .animate-marquee {
+        animation: marquee 5s linear infinite;
+    }
+
+    .hover\:pause:hover {
+        animation-play-state: paused;
+    }
+
+    @keyframes marquee {
+        0% {
+            transform: translateX(0);
+        }
+
+        100% {
+            transform: translateX(-50%);
+        }
+    }
+}
+
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
+html.dark {
+    background: linear-gradient(120deg, #111, #222);
+    transition: background 0.7s ease;
+}
+
+body {
+    transition: background-color 0.7s ease, color 0.7s ease;
+}
+
+.inset-shadow-sm {
+    transition: box-shadow 0.5s ease;
+}
+
+html {
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+body,
+a,
+button,
+div {
+    transition: background-color 0.5s ease, color 0.5s ease, box-shadow 0.5s ease;
+}
