@@ -1,0 +1,48 @@
+---
+import PillLink from "./PillLink.astro";
+import GitHubLogo from "../../assets/images/logos/github.svg";
+import ItchLogo from "../../assets/images/logos/itchio.svg";
+import MailLogo from "../../assets/images/icons/mail.svg";
+import LinkedinLogo from "../../assets/images/logos/linkedin.svg";
+---
+
+<div class="border-t border-neutral-200 dark:border-neutral-800">
+    <section class="py-20 flex justify-center" id="contact">
+        <div class="flex flex-wrap justify-center gap-4">
+            <PillLink
+                href="https://github.com/Modderjoch"
+                label="GitHub"
+                width="150px"
+                Logo={GitHubLogo}
+                behavior="new"
+            />
+            <PillLink
+                href="https://modderjoch.itch.io/"
+                label="Itch.io"
+                width="150px"
+                Logo={ItchLogo}
+                behavior="new"
+            />
+            <PillLink
+                href="https://www.linkedin.com/in/oebe/"
+                label="LinkedIn"
+                width="150px"
+                Logo={LinkedinLogo}
+                behavior="new"
+            />
+            <PillLink
+                href="mailto:o.rademaker@outlook.com"
+                label="Email me!"
+                width="150px"
+                Logo={MailLogo}
+                behavior="new"
+            />
+        </div>
+    </section>
+    <footer class="py-10 text-center">
+        <p class="text-sm text-neutral-500">
+            &copy; {new Date().getFullYear()}
+            <a href="#about">Modderjoch</a>
+        </p>
+    </footer>
+</div>

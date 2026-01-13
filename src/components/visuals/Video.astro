@@ -1,0 +1,46 @@
+---
+const {
+    src = "",
+    type = "local",
+    width = "100%",
+    height = "auto",
+    controls = true,
+    muted = false,
+    autoplay = false,
+    loop = false,
+} = Astro.props;
+---
+
+<div class="video-wrapper w-full" style={`width:${width}; height:${height};`}>
+    {
+        type === "local" ? (
+            <video
+                src={src}
+                class="w-full h-full rounded-[0.5rem]"
+                {controls}
+                {muted}
+                {autoplay}
+                {loop}
+            />
+        ) : (
+            <iframe
+                src={src}
+                class="w-full h-full rounded-[0.5rem]"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+            />
+        )
+    }
+</div>
+
+<style>
+    .video-wrapper {
+        position: relative;
+        aspect-ratio: 16 / 9;
+        margin-top: 1rem;
+    }
+    .video-wrapper iframe,
+    .video-wrapper video {
+        object-fit: cover;
+    }
+</style>

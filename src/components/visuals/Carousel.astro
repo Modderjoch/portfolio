@@ -1,0 +1,143 @@
+---
+import { Image } from "astro:assets";
+
+const {
+    images = [],
+    width = "100%",
+    height = null,
+    adaptiveHeight = true,
+    description = null,
+    descriptionPosition = "bottom",
+} = Astro.props;
+
+let index = 0;
+---
+
+<div class="carousel" style={`width:${width};`}>
+    {
+        description && descriptionPosition === "top" && (
+            <p class="carousel-desc">{description}</p>
+        )
+    }
+
+    <div
+        class="carousel-frame rounded-[0.5rem]"
+        style={height ? `height:${height};` : ""}
+    >
+        <Image
+            id="carouselImage"
+            src={images[0]}
+            alt="carousel image"
+            class="w-full h-full object-contain"
+        />
+    </div>
+
+    <div class="carousel-controls">
+        <button class="carousel-arrow" data-dir="-1">‹</button>
+
+        <div class="carousel-dots">
+            {images.map((_, i) => <button data-i={i} />)}
+        </div>
+
+        <button class="carousel-arrow" data-dir="1">›</button>
+    </div>
+
+    {
+        description && descriptionPosition === "bottom" && (
+            <p class="carousel-desc">{description}</p>
+        )
+    }
+</div>
+
+<script define:vars={{ images }}>
+    let i = 0;
+    const img = document.getElementById("carouselImage");
+    const dots = document.querySelectorAll(".carousel-dots button");
+
+    function update() {
+        img.src = images[i].src;
+        dots.forEach((d) => d.classList.remove("active"));
+        dots[i]?.classList.add("active");
+    }
+
+    document.querySelectorAll(".carousel-arrow").forEach((btn) => {
+        btn.addEventListener("click", () => {
+            i = (i + Number(btn.dataset.dir) + images.length) % images.length;
+            update();
+        });
+    });
+
+    dots.forEach((btn) => {
+        btn.addEventListener("click", () => {
+            i = Number(btn.dataset.i);
+            update();
+        });
+    });
+
+    update();
+</script>
+
+<style>
+    .carousel {
+        width: 100%;
+    }
+
+    .carousel-desc {
+        text-align: center;
+        padding: 0.5rem;
+    }
+
+    .carousel-frame {
+        width: 100%;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    }
+
+    .carousel-frame img {
+        width: 100%;
+        height: auto;
+        display: block;
+        object-fit: contain;
+    }
+
+    .carousel-controls {
+        display: grid;
+        grid-template-columns: 40px 1fr 40px;
+        align-items: center;
+        margin-top: 0.5rem;
+    }
+
+    .carousel-arrow {
+        font-size: 2rem;
+        height: 40px;
+        width: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        user-select: none;
+    }
+
+    .carousel-dots {
+        display: flex;
+        justify-content: center;
+        gap: 0.5rem;
+    }
+
+    .carousel-dots button {
+        width: 10px;
+        height: 10px;
+        border-radius: 999px;
+        background: rgba(128, 128, 128, 0.3);
+    }
+
+    .carousel-dots button.active {
+        background: rgb(249 115 22);
+    }
+
+    .carousel-desc {
+        margin-top: 0.5rem;
+        opacity: 0.7;
+        font-size: 0.85rem;
+    }
+</style>

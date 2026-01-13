@@ -1,0 +1,61 @@
+---
+import MoonIcon from "../../assets/images/icons/moon.svg";
+import SunIcon from "../../assets/images/icons/sun.svg";
+---
+
+<div class="flex items-center">
+    <button
+        class="theme-toggle relative flex items-center h-8 w-16 rounded-full bg-gray-300 dark:bg-gray-700 focus:outline-none transition-colors duration-300"
+        aria-label="Toggle dark mode"
+    >
+        <SunIcon
+            class="theme-sun absolute w-5 h-5 left-2 text-yellow-500 transition-transform duration-300"
+        />
+        <MoonIcon
+            class="theme-moon absolute w-5 h-5 right-2 text-blue-600 transition-transform duration-300"
+        />
+        <span
+            class="theme-toggle-circle absolute top-0.5 left-0.5 w-7 h-7 bg-white dark:bg-gray-200 hover:opacity-90 rounded-full shadow-md transition-transform duration-300"
+        ></span>
+    </button>
+</div>
+
+<script>
+    const root = document.documentElement;
+
+    // Helper: set theme
+    const setTheme = (isDark) => {
+        root.classList.toggle("dark", isDark);
+        root.setAttribute("data-theme", isDark ? "dark" : "light");
+        localStorage.theme = isDark ? "dark" : "light";
+
+        // Update all toggle buttons
+        document.querySelectorAll(".theme-toggle").forEach((toggleBtn) => {
+            const toggleCircle = toggleBtn.querySelector(
+                ".theme-toggle-circle",
+            );
+            const sunIcon = toggleBtn.querySelector(".theme-sun");
+            const moonIcon = toggleBtn.querySelector(".theme-moon");
+
+            toggleCircle.classList.toggle("translate-x-8", isDark);
+            toggleCircle.classList.toggle("translate-x-0", !isDark);
+
+            sunIcon.classList.toggle("scale-110", !isDark);
+            moonIcon.classList.toggle("scale-110", isDark);
+        });
+    };
+
+    // Initialize theme on page load
+    const savedTheme = localStorage.theme;
+    const prefersDark = window.matchMedia(
+        "(prefers-color-scheme: dark)",
+    ).matches;
+    setTheme(savedTheme === "dark" || (!savedTheme && prefersDark));
+
+    // Attach click listener to all toggle buttons
+    document.querySelectorAll(".theme-toggle").forEach((toggleBtn) => {
+        toggleBtn.addEventListener("click", () => {
+            setTheme(!root.classList.contains("dark"));
+        });
+    });
+</script>

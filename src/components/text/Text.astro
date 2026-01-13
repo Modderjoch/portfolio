@@ -1,0 +1,10 @@
+---
+const { padding = "p-0", margin = "my-0" } = Astro.props;
+---
+
+<p
+    class={`font-roboto leading-relaxed text-black dark:text-white ${padding} ${margin}`}
+    style="margin-top:1rem"
+>
+    <slot />
+</p>

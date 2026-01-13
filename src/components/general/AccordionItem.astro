@@ -1,0 +1,68 @@
+---
+const { title, open = false } = Astro.props;
+const id = Math.random().toString(36).slice(2);
+---
+
+<div
+    class="accordion-item dark:bg-slate-950 bg-neutral-100 text-black dark:text-white"
+>
+    <button
+        class="accordion-header border-0 outline-none bg-transparent hover:text-orange-500"
+        data-id={id}
+    >
+        <span>{title}</span>
+        <span class="chevron">›</span>
+    </button>
+
+    <div class="accordion-content" id={id} data-open={open}>
+        <slot />
+    </div>
+</div>
+
+<style>
+    .accordion-header {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem;
+        font-weight: 500;
+        cursor: pointer;
+    }
+
+    .accordion-content {
+        max-height: 0;
+        overflow: hidden;
+        transition:
+            max-height 0.35s ease,
+            padding 0.25s ease;
+        padding: 0 1rem;
+    }
+
+    .accordion-content[data-open="true"] {
+        max-height: 500px;
+        padding-bottom: 1rem;
+    }
+
+    .chevron {
+        transition: transform 0.3s ease;
+    }
+
+    .accordion-header.active .chevron {
+        transform: rotate(90deg);
+    }
+</style>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        document.querySelectorAll(".accordion-header").forEach((btn) => {
+            btn.addEventListener("click", () => {
+                const content = document.getElementById(btn.dataset.id);
+                const open = content.dataset.open === "true";
+
+                content.dataset.open = !open;
+                btn.classList.toggle("active");
+            });
+        });
+    });
+</script>

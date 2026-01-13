@@ -1,0 +1,53 @@
+---
+const {
+    left,
+    right,
+    altLeft = "",
+    altRight = "",
+    compareHorizontal = true,
+    slideAutomatic = false,
+} = Astro.props;
+---
+
+<script
+    defer
+    src="https://cdn.jsdelivr.net/npm/img-comparison-slider@8/dist/index.js"
+></script>
+<link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/img-comparison-slider@8/dist/styles.css"
+/>
+
+<style>
+    .custom-animated-handle {
+        transition: transform 0.2s;
+    }
+
+    .slider-with-animated-handle:hover .custom-animated-handle {
+        transform: scale(1.2);
+    }
+</style>
+
+<img-comparison-slider
+    class="slider-with-animated-handle rounded-[0.5rem]"
+    direction={compareHorizontal ? "horizontal" : "vertical"}
+    hover={slideAutomatic ? "hover" : undefined}
+>
+    <img slot="first" alt={altLeft} width="100%" src={left} />
+    <img slot="second" alt={altRight} width="100%" src={right} />
+    <svg
+        slot="handle"
+        class="custom-animated-handle"
+        xmlns="http://www.w3.org/2000/svg"
+        width="100"
+        viewBox="-8 -3 16 6"
+    >
+        <path
+            stroke="#000000"
+            d="M -5 -2 L -7 0 L -5 2 M -5 -2 L -5 2 M 5 -2 L 7 0 L 5 2 M 5 -2 L 5 2"
+            stroke-width="2"
+            fill="#fff"
+            vector-effect="non-scaling-stroke"
+            data-darkreader-inline-stroke=""></path>
+    </svg>
+</img-comparison-slider>

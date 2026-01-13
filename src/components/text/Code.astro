@@ -1,0 +1,10 @@
+---
+const { language = "" } = Astro.props;
+---
+
+<pre
+    class="portfolio-code dark:bg-slate-950 bg-slate-800 rounded-[0.5rem] text-white"
+    style="margin-top: 1rem; padding:1rem; overflow-x:auto; font-size: 0.9rem; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.05);;"
+    ;>
+<code class={`language-${language}`}><slot /></code>
+</pre>

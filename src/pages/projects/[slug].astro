@@ -1,5 +1,5 @@
 ---
-import BaseLayout from "../../layouts/BaseLayout.astro";
+import ProjectLayout from "../../layouts/ProjectLayout.astro";
 import { getCollection } from "astro:content";
 
 export async function getStaticPaths() {
@@ -15,9 +15,8 @@ const { project } = Astro.props;
 const { Content } = await project.render();
 ---
 
-<BaseLayout title={project.data.title}>
-    <article class="prose prose-invert max-w-none">
-        <h1>{project.data.title}</h1>
+<ProjectLayout title={project.data.title}>
+    <article class="prose prose-invert mx-auto">
         <Content />
     </article>
-</BaseLayout>
+</ProjectLayout>

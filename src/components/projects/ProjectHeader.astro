@@ -1,0 +1,16 @@
+---
+const { title, date } = Astro.props;
+---
+
+<section class="text-center mb-12">
+    <h1 class="text-4xl font-extrabold" style="font-family: Quicksand;">
+        {title}
+    </h1>
+
+    <p
+        class="mt-2 font-semibold text-neutral-800 dark:text-neutral-300"
+        style="font-family: Roboto Condensed; text-transform: uppercase;"
+    >
+        {date.toLocaleDateString()}
+    </p>
+</section>

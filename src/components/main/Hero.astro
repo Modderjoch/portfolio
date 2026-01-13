@@ -1,0 +1,53 @@
+---
+import PillLink from "../general/PillLink.astro";
+import Spacer from "../general/Spacer.astro";
+import CvIcon from "../../assets/images/icons/cv.png";
+import CodeIcon from "../../assets/images/icons/code.png";
+import MailIcon from "../../assets/images/icons/mail.png";
+---
+
+<section class="mb-32 text-center">
+    <h1 class="text-4xl font-extrabold" style="font-family: Quicksand;">
+        Oebe Rademaker
+    </h1>
+    <p
+        class="mt-2 font-semibold text-neutral-800 dark:text-neutral-300"
+        style="font-family:Roboto Condensed; text-transform:uppercase;"
+    >
+        Developer &bull; Designer
+    </p>
+    <p
+        class="mt-4 text-neutral-500 dark:text-neutral-400 max-w-xl mx-auto text-sm md:text-lg"
+        style="font-family:Roboto Condensed;"
+    >
+        I create engaging games, immersive experiences, and custom applications
+        with a fun-first mentality, bringing creativity and teamwork to every
+        project.
+    </p>
+
+    <Spacer className="h-10 md:h-15" />
+
+    <div class="flex flex-wrap gap-4 justify-center">
+        <PillLink
+            href="#projects"
+            label="View projects"
+            width="160px"
+            logoSrc={CodeIcon}
+            behavior="same"
+        />
+        <PillLink
+            href="#contact"
+            label="Get in touch"
+            width="160px"
+            logoSrc={MailIcon}
+            behavior="same"
+        />
+        <PillLink
+            href="/files/cv/cv.pdf"
+            label="Download CV"
+            width="160px"
+            logoSrc={CvIcon}
+            behavior="download"
+        />
+    </div>
+</section>

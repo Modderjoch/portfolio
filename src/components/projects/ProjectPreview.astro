@@ -1,0 +1,86 @@
+---
+const { project } = Astro.props;
+import PillLink from "../general/PillLink.astro";
+import GithubLogo from "../../assets/images/logos/github.svg";
+import ExternalLogo from "../../assets/images/icons/external-link.svg";
+import TagLogo from "../../assets/images/icons/tag.svg";
+---
+
+<div
+    id={`modal-${project.slug}`}
+    class="fixed inset-0 z-50 hidden items-center justify-center backdrop-blur-sm bg-black/40"
+>
+    <div class="absolute inset-0 modal-backdrop"></div>
+
+    <div
+        class="relative max-w-4xl w-full mx-6 bg-white dark:bg-slate-950 rounded-md overflow-hidden shadow-2xl"
+    >
+        <button
+            class="absolute top-4 right-4 text-neutral-400 hover:text-white text-2xl modal-close"
+        >
+            ×
+        </button>
+
+        <div class="flex flex-col">
+            <div
+                class="px-6 py-4 border-b border-neutral-200 dark:border-neutral-800"
+            >
+                <h2 class="text-2xl font-bold">{project.data.title}</h2>
+            </div>
+
+            <div class="p-6">
+                <div class="relative rounded-xl overflow-hidden shadow-lg">
+                    <img
+                        src={project.data.thumbnail}
+                        class="w-full h-[360px] object-cover"
+                        alt={project.data.title}
+                    />
+
+                    <div
+                        class="absolute inset-0 flex items-end justify-start p-4 gap-3"
+                    >
+                        <PillLink
+                            href={`/projects/${project.slug}`}
+                            label="Full project"
+                            width="140px"
+                            behavior="new"
+                            Logo={ExternalLogo}
+                        />
+
+                        {
+                            project.data.github && (
+                                <PillLink
+                                    href={project.data.github}
+                                    label="GitHub"
+                                    width="140px"
+                                    behavior="new"
+                                    Logo={GithubLogo}
+                                />
+                            )
+                        }
+                    </div>
+                </div>
+            </div>
+
+            <div class="px-8 pb-8 space-y-4">
+                <p class="text-neutral-500 dark:text-neutral-400">
+                    {project.data.summary}
+                </p>
+
+                <div class="flex flex-wrap gap-2">
+                    <TagLogo class="w-4 h-4 text-orange-500" />
+                    {
+                        project.data.tags?.map((t) => (
+                            <span
+                                class="bg-orange-500 text-white text-xs px-3 py-1 rounded"
+                                style="font-weight: bold;"
+                            >
+                                {t}
+                            </span>
+                        ))
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

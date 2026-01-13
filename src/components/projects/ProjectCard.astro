@@ -1,0 +1,63 @@
+---
+const { project } = Astro.props;
+const excerpt = project.data.excerpt ?? "";
+const tags = project.data.tags ?? [];
+import TagLogo from "../../assets/images/icons/tag.svg";
+---
+
+<button
+    class="block text-left w-full project-card"
+    data-modal={`modal-${project.slug}`}
+>
+    <article
+        class="rounded-md bg-white dark:bg-slate-900 overflow-hidden transition-transform shadow-md dark:shadow-white/20 dark:inset-shadow-white/20 inset-shadow-xs hover:scale-105"
+    >
+        {
+            project.data.thumbnail && (
+                <img
+                    src={project.data.thumbnail}
+                    alt={project.data.title}
+                    class="w-full h-48 object-cover rounded-t-lg"
+                />
+            )
+        }
+
+        <div class="p-4">
+            <h3
+                class="text-xl font-extrabold mb-3 transition-colors duration-300"
+                style="font-family: Quicksand;"
+            >
+                <span class="group-hover:text-orange-500 transition-colors"
+                    >{project.data.title}</span
+                >
+            </h3>
+
+            {
+                excerpt && (
+                    <p
+                        class="text-neutral-500 dark:text-neutral-400 text-sm mb-4 line-clamp-3"
+                        style="font-family:Roboto Condensed"
+                    >
+                        {excerpt}
+                    </p>
+                )
+            }
+
+            {
+                tags.length > 0 && (
+                    <div class="flex flex-wrap gap-2 mb-2">
+                        <TagLogo class="w-4 h-4 text-orange-500" />
+                        {tags.map((tag) => (
+                            <span
+                                class="bg-orange-400 text-white text-xs px-2 py-1 rounded"
+                                style="font-family:Roboto Condensed; font-weight: bold;"
+                            >
+                                {tag}
+                            </span>
+                        ))}
+                    </div>
+                )
+            }
+        </div>
+    </article>
+</button>

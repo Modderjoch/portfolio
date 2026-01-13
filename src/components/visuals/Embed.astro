@@ -1,0 +1,26 @@
+---
+const {
+    src = "",
+    width = "100%",
+    height = "400px",
+    rounded = true,
+    border = false,
+} = Astro.props;
+---
+
+<div
+    class={`embed-wrapper ${rounded ? "rounded-[0.5rem]" : ""} ${border ? "border border-slate-300" : ""}`}
+    style={`width:${width}; height:${height};`}
+>
+    <iframe src={src} class="w-full h-full" allowfullscreen></iframe>
+</div>
+
+<style>
+    .embed-wrapper iframe {
+        object-fit: cover;
+    }
+
+    .embed-wrapper {
+        margin-top: 1rem;
+    }
+</style>

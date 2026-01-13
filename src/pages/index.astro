@@ -1,21 +1,19 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
-import Hero from "../components/Hero.astro";
-import PortfolioSection from "../components/PortfolioSection.astro";
-import LinksSection from "../components/LinksSection.astro";
-import FaceTracker from "../components/FaceTracker.astro";
-import Spacer from "../components/Spacer.astro";
-import Footer from "../components/Footer.astro";
+import MainLayout from "../layouts/MainLayout.astro";
+import Hero from "../components/main/Hero.astro";
+import ProjectSection from "../components/projects/ProjectSection.astro";
+import FaceTracker from "../components/main/FaceTracker.astro";
+import Spacer from "../components/general/Spacer.astro";
+import Footer from "../components/general/Footer.astro";
 ---
 
-<BaseLayout>
+<MainLayout title="modderjoch • portfolio">
 	<Spacer className="h-6 md:h-24" />
 	<FaceTracker />
 	<Spacer className="h-4 md:h-6" />
 	<Hero />
 	<p id="projects"></p>
 	<Spacer className="h-6 md:h-40" />
-	<PortfolioSection />
-	<LinksSection />
+	<ProjectSection />
 	<Footer />
-</BaseLayout>
+</MainLayout>

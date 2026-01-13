@@ -1,21 +1,20 @@
-// Grid configuration (must match your generated images)
 const P_MIN = -15;
 const P_MAX = 15;
 const STEP = 2.5;
-const SIZE = 256;
+const SIZE = 512;
 
 function clamp(value, min, max) {
   return Math.max(min, Math.min(max, value));
 }
 
 function quantizeToGrid(val) {
-  const raw = P_MIN + (val + 1) * (P_MAX - P_MIN) / 2; // [-1,1] -> [-15,15]
+  const raw = P_MIN + (val + 1) * (P_MAX - P_MIN) / 2;
   const snapped = Math.round(raw / STEP) * STEP;
   return clamp(snapped, P_MIN, P_MAX);
 }
 
 function sanitize(val) {
-  const str = Number(val).toFixed(1); // force one decimal, e.g. 0 -> 0.0
+  const str = Number(val).toFixed(1);
   return str.replace('-', 'm').replace('.', 'p');
 }
 
@@ -75,11 +74,9 @@ function initializeFaceTracker(container) {
     }
   }
 
-  // Track pointer anywhere on the page
   window.addEventListener('mousemove', handleMouseMove);
   window.addEventListener('touchmove', handleTouchMove, { passive: true });
 
-  // Initialize at center
   const rect = container.getBoundingClientRect();
   setFromClient(rect.left + rect.width / 2, rect.top + rect.height / 2);
 }

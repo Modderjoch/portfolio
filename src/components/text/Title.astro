@@ -1,0 +1,16 @@
+---
+const { subtitle = null, padding = "p-4", margin = "mb-6" } = Astro.props;
+---
+
+<div class={`${padding} ${margin}`}>
+    <h1 class="font-quicksand text-4xl md:text-5xl font-bold leading-tight">
+        <slot />
+    </h1>
+    {
+        subtitle && (
+            <p class="mt-1 pt-1 border-t border-slate-300 text-xs uppercase tracking-widest text-slate-500">
+                {subtitle}
+            </p>
+        )
+    }
+</div>

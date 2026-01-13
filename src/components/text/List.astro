@@ -1,0 +1,45 @@
+---
+const { items = [], ordered = false, type = "numbers" } = Astro.props;
+
+const isOrdered = ordered === true;
+const listTag = isOrdered ? "ol" : "ul";
+
+let listClass = "portfolio-list";
+
+if (isOrdered) {
+    listClass += type === "letters" ? " letters" : " numbers";
+}
+---
+
+<div class="portfolio-list-wrapper">
+    <listTag class={listClass}>
+        {items.map((item) => <li>{item}</li>)}
+    </listTag>
+</div>
+
+<style>
+    .portfolio-list {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        padding-left: 1.25rem;
+        margin-top: 1rem;
+    }
+
+    .portfolio-list.numbers {
+        list-style-type: decimal;
+    }
+
+    .portfolio-list.letters {
+        list-style-type: upper-alpha;
+    }
+
+    .portfolio-list:not(.numbers):not(.letters) {
+        list-style-type: disc;
+    }
+
+    .portfolio-list li::marker {
+        color: rgb(249 115 22);
+        font-weight: 600;
+    }
+</style>

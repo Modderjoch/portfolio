@@ -1,0 +1,24 @@
+---
+const { cols = 2, mobileCols = 1, gap = "gap-6" } = Astro.props;
+---
+
+<div
+    class={`columns ${gap}`}
+    style={`--desktop-cols:${cols}; --mobile-cols:${mobileCols};`}
+>
+    <slot />
+</div>
+
+<style>
+    .columns {
+        display: grid;
+        grid-template-columns: repeat(var(--desktop-cols), minmax(0, 1fr));
+        margin-top: 1rem;
+    }
+
+    @media (max-width: 768px) {
+        .columns {
+            grid-template-columns: repeat(var(--mobile-cols), minmax(0, 1fr));
+        }
+    }
+</style>

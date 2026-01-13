@@ -1,0 +1,24 @@
+---
+const { level = 2, margin = "my-6" } = Astro.props;
+
+const Tag = `h${level}`;
+---
+
+<Tag
+    class={`font-quicksand font-bold tracking-tight ${margin}
+	text-${
+        level === 1
+            ? "4xl"
+            : level === 2
+              ? "3xl"
+              : level === 3
+                ? "2xl"
+                : level === 4
+                  ? "xl"
+                  : level === 5
+                    ? "lg"
+                    : "base"
+    }`}
+>
+    <slot />
+</Tag>
