@@ -3,6 +3,7 @@ const { project } = Astro.props;
 const excerpt = project.data.excerpt ?? "";
 const tags = project.data.tags ?? [];
 import TagLogo from "../../assets/images/icons/tag.svg";
+import { Image } from "astro:assets";
 ---
 
 <button
@@ -14,10 +15,12 @@ import TagLogo from "../../assets/images/icons/tag.svg";
     >
         {
             project.data.thumbnail && (
-                <img
+                <Image
                     src={project.data.thumbnail}
                     alt={project.data.title}
                     class="w-full h-48 object-cover rounded-t-lg"
+                    width="1"
+                    height="1"
                 />
             )
         }

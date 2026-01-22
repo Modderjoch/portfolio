@@ -33,8 +33,8 @@ const {
     direction={compareHorizontal ? "horizontal" : "vertical"}
     hover={slideAutomatic ? "hover" : undefined}
 >
-    <img slot="first" alt={altLeft} width="100%" src={left} />
-    <img slot="second" alt={altRight} width="100%" src={right} />
+    <img slot="first" alt={altLeft} width="100%" src={left.src} />
+    <img slot="second" alt={altRight} width="100%" src={right.src} />
     <svg
         slot="handle"
         class="custom-animated-handle"

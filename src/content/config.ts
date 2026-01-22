@@ -4,13 +4,14 @@ const projects = defineCollection({
     loader: {
         glob: "**/*.{md,mdx}"
     },
-    schema: z.object({
-        title: z.string(),
-        date: z.date(),
-        tags: z.array(z.string()).optional(),
-        thumbnail: z.string().optional(),
-        excerpt: z.string().optional(),
-    })
+    schema: ({ image }) =>
+        z.object({
+            title: z.string(),
+            date: z.date(),
+            tags: z.array(z.string()).optional(),
+            thumbnail: image().optional(),
+            excerpt: z.string().optional(),
+        }),
 });
 
 
