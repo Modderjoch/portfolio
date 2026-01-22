@@ -3,6 +3,9 @@ dist/
 # generated types
 .astro/
 
+# face-tracking images
+/public/images/faces/
+
 # dependencies
 node_modules/
 
