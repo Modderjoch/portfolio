@@ -1,0 +1,12 @@
+For immersive storytelling, I was tasked with creating a story that deployed the basic elements of storytelling. This whole process was documented to justify the choices I made and explain how all storytelling elements were implemented. The said document can be found here.
+
+To do this, I used Twine. I created over 50 passages, wrote over 8000 words and used over 10 different variables to create a highly interactive story.
+The story structure for “The G.E.N.I.U.S. Facility”.
+
+I wanted to write a story that actually had a little bit of meaning to it, while also trying to make the most out of the subject. In the end, I created this story. It is about a boy, named #13, he has been locked up in a facility for as long as he has known. Tasked with creating a solution for global warming he and a dozen other kids just like him have to go to school to work on the Great Invention every day.
+
+As it turns out, he has been working for G.E.N.I.U.S (General Enablers of New Inventions in Uprising for Sustainability) since he had been taken away after kindergarten. When in kindergarten, the children have to take a IQ test on Save The World day. If their score passes a certain number they were transferred to one of the hundred facilities all around the world. Here they were tasked with coming up and creating the solution for climate change.
+
+In the story, I implemented 8 different endings, with the use of variables I made it so that every choice has an outcome somewhere in the story. For example, when you decide to stay in bed at the beginning you will be reprimanded and lose free time privileges for the day. But if you manage to try and escape through the office you get a chance at reading your own file. This file contains an evaluation of the trouble you got in. If you didn’t stay in bed that morning, nothing will be there. If you did, however, it will say that you showed rebellious behaviour on that day.
+
+These little things are what make the story so interactive. There are a lot of different things just like this in the full story, I could list them all here but I think it would be better if you just read the story yourself. Click the button below to do so.

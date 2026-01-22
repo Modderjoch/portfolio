@@ -1,0 +1,25 @@
+At the end of the first year, we finally started with Unity. In my free time I had used Unity a bit before and in comparison to Processing, GxP and Flowlab.io it allows you to do so much more. I was really excited to start working on this subject and I had a ton of ideas.
+
+I went ahead and started working on a golf game. I called it “Golf Without Friends” (a parody of golf with friends) as it is a single-player game.
+
+    1
+    2
+    3
+
+    Previous
+    Next
+
+    1
+    2
+    3
+
+    Previous
+    Next
+
+During the process I followed some tutorials, the most important one being this one. After watching that I was able to implement the movement of the golf ball and the action of controlling it. I then went on to 3D model all of the different holes (levels) I wanted to create.
+
+Some of these levels I based on my recent mini-golf experience. Others were based on inspiration I found on Pinterest. After 3D modelling them I looked for materials that would fit them well.
+
+The final step was to use post-processing, this is where the visuals were improved a lot just by tweaking some image effects. I also added a motion blur to improve how fast it felt to hit the ball and a custom skybox as I wanted real clouds and better environmental lighting.
+
+If you want to play the game yourself, you can click the button below.

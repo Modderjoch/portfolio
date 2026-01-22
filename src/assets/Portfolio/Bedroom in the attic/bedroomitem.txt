@@ -1,0 +1,10 @@
+
+
+I’ve always wanted to try my hand at an isometric room design. This one got heavily inspired by one of our old bedrooms.
+
+I started by creating mood boards using Pinterest. Then I followed a quick tutorial to get started and mostly went on my own from there. I worked on this project for several days, documenting the progress I had made at the end of each day, combined with rendering a final image for the day.
+
+I also took the time to learn more about the material node system in Blender as I previously only used base colour- and normal maps.
+
+After this project, I have learned how to add controlled randomness (for example for books or clothes) as well as use built-in textures to add relief to the floor for example.
+An example of a node setup for a random book cover material.

@@ -1,0 +1,58 @@
+From February until the end of June 2024, I worked on developing an Augmented Reality (AR) experience designed for the JCK in Amsterdam.
+The goal of the project was to create a new take on the previously made Eden’s and the Golden Rule VR installation. This ‘Golden Rule’ is as follows:
+
+    “In everything, do to others what you would have them do to you.”
+    Gospel of Matthew (7:12)
+
+During the project I was part of a team made up of three artists and two designers as well as one developer (me). I was responsible for everything in regards to programming, from implementing the voice overs to implementing a game-wide system to keep track of scenes and advance through different phases. Next to that I have developed several smaller systems to solve more specific problems we encountered during the development.
+
+My first few weeks revolved around getting to know AR and the inner-workings within Unity regarding Extended Reality technologies. I had never worked with anything like it before and started learning from the first second.
+
+After getting to know the basics, I developed a few iterations of a simple prototype. Often showing another simple addition like changeable scaling of models and constant animation. These prototypes all used image tracking as a base for the AR. This was included in the Unity AR Foundation package but I customised to my liking to account for more specific features, like a scene management system later on.
+
+Some of the prototypes in question:
+
+To allow for a scalable and flexible solution regarding scene setup, I decided to use scriptable objects. This made it so that I could easily store data per scene, which could be accessed and modified in a simple manner too. These could hold the necessary references, scene index, environment prefab, etc.
+
+Next to that, I worked with an abstract class structure for the scene specific scripts. This made it so I could easily call an OnSceneEnter() method per scene if another overarching manager script detected it as the currently indexed scene that should be activated. After doing so, I used subscription and unsubscription throughout the scene specific scripts to accommodate for multiple voice overs that depended on other parts, using events and listeners through advance through the scene.
+
+
+The abstract class and another class holding references to objects in the scene (UI). These would later be stored under the specific GameScene.
+
+
+An example of a scene specific script, using events and listeners to advance.
+
+
+The GameScene scriptable object, this holds all data to construct a scene as well as a Clone() method that is called at the beginning, after which “Modifiable” scenes are created to be used throughout the game. This is to protect the actual scriptable objects.
+
+
+An example of how the scene specific version of the abstract GameSceneData is called. When a scene is detected as indexed and inactive, a check for the script is performed after which the OnSceneEnter() will be called.
+The AudioManager script, which uses the LanguageID if applicable to differentiate based on the selected locale.
+
+Having said up the whole project this way I then progressed through the first scene I worked on, eventually allowing me to use this setup to easily and efficiently create the other scenes too as I had already done it once. I had also created an Interactable class, that had an event which would be called upon pickup and allowed for easy addition of new interactables.
+
+Throughout the whole development, we also encountered some issues. A software called Rive (used for vector animations) did not work with our Unity version and was therefor abandoned. However, we still needed the animations so I wrote a simple script to change images at x rate per frame. Another issue was that we initially planned on 3D modelling all characters but, due to time constraints, we decided against it and went back to 2D instead. This led to us not using mocap animations and I once again had to come up with a creative solution. I set up a system to change the image of a character after x seconds to create the illusion of animation in a sort of ‘visual novel’ style.
+An interaction for the scene, involving throwing a seed. This was more difficult than it seems due to using physics which I had never done before.
+An implementation of the UI made by the designers, combined with localized strings.
+Using the previous seed throwing to spawn flowers on the ground.
+Another simple addition using a shader in code, by lerping through a value I created a transition in the grass.
+The custom ‘visual novel’ style animation, using 2D character frames.
+Using the visual novel animation.
+
+
+The editor when using the CharacterTextureReplacing script, which is responsible for the custom frame animations.
+
+
+The specific classes the CharacterTextureReplacing script uses to show an easy editor.
+
+For the next few scenes I had to implement some new interactions, collecting paper that flew everywhere, gathering ‘collectables’ like a bracelet and compass and more.
+The initial tests to create paper-like physics.
+The collectable bracelet.
+Adding a new interaction that allows players to choose their desired seed to plant a flower of their choice.
+The implemented flying paper, using the Interactable class.
+The collectable compass.
+An implemented compass UI, UI was made by another member of the team and shows a ‘finger’ of the hamza after the completion of every scene.
+
+And finally, combining everything previously shown and some other additions I had no other footage of. The full playthrough.
+
+Note: there were still some inconsistencies when recording this but it has all been ironed out now.

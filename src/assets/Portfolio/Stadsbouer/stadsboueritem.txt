@@ -1,0 +1,11 @@
+The game can be found on itch.io. It is only a prototype and a mere proof of concept and because of that, there are still things missing and parts left unpolished.
+
+I have worked on this game for around 6 weeks. Mainly focussing on the programming side of things this time around.
+
+It all started with a very basic game concept, I wanted to combine the card game and city builder genres. This would be done in Unity, making use of local turn-based gameplay where the players could play cards and throw a dice to activate said cards.
+First gameplay sketch
+
+The gameplay would be based around earning money through activating your cards/buildings which would then lead to more money etc.
+I also thought of a prestige mechanic which is currently not being used but I plan on using it as a general currency to unlock more cards in the future.
+
+The GDD can be found here.

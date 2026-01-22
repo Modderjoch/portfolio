@@ -1,0 +1,22 @@
+In the winter of 2022, I started working on Geometry Nodes in Blender. This topic looked really interesting to me and I had seen multiple artists creating the most beautiful models by using this feature in the correct way.
+
+LEGO Geometry Node
+
+Planet Generator Node
+
+When I make my way through more nodes they will be on this page.
+LEGO Geometry Node
+
+I created this geometry node with the help of a tutorial from Joey Carlino. Then I applied it on multiple projects I have previously worked on as well as a brand new project I made specifically for this node.
+Lego Geometry Node Setup
+The node setup
+
+What I’m trying to do here is replace a certain amount of points in the mesh’s volume with lego blocks. Based on the variable quality there will be more points and thus more lego blocks. Then I’m applying the old UVs to see what color is nearest and applying said color on the brick.
+Examples
+Planet Generator Node
+
+I created this geometry node after being inspired by this post on reddit. I then researched a few techniques and started working on this project. After about a week I finished and this is the end result.
+The node setup
+
+void
+Examples

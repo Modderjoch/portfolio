@@ -1,0 +1,71 @@
+This game was created during a semester-long project in which I led the project and contributed with design and programming.
+
+Eggsplosion is now on Steam! You can click the button down below to add the game to your library!
+
+I have taken the lead role in this project since it started but even more so when we decided to put it up on Steam. Since then I have worked on the following things:
+
+    UI/UX programming and implementation
+        In-game pause menu
+        Options screen
+        Leaderboard UI handling
+        Various smaller improvements
+
+    Content creation
+        Gameplay trailer
+        Short video content (Tiktok, Instagram, Youtube shorts)
+        General social media (previous + Reddit, Twitter(X))
+
+    Steam
+        Store page
+        Game builds
+        Announcements
+        Steam Features
+            Steam Input
+            Steam Cloud
+
+    Project lead (and lead designer)
+        Keeping things on track
+        Managing a trello board
+        Version control
+        Communication with team
+        To-go for any issue
+        Game design
+
+Now about the game, Eggsplosion is a local multiplayer fighting/party game in which you play as a chicken against chickens.
+
+The gameplay is quick and short but a lot of fun. There are different powerups spawning around the various maps that can change your projectile type or give your character certain boosts.
+Down below I will go into further detail regarding the design process and UI/UX and level design implementation.
+
+The game/level design
+Specifying our chosen concept
+Sketching out the first level
+
+Our first brainstorm session
+Coming up with the initial game concept
+
+The powerup design
+Brainstorming about powerups
+Prioritising and categorising the powerups
+Combining powerups and balancing
+
+These sketches and brainstorming documentation eventually led us to the first real prototype of which I, unfortunately, do not have footage.
+
+I do have a before and after for the level I worked on
+
+I also worked on the user experience which was not my best work but I have made major improvements since my first try, at the time I did not have any knowledge of Unity’s new input system which held me back a bit.
+
+Since then I have tested and received feedback which resulted in some big improvements. The majority of the complaints were about bad menu flow or confusing things happening.
+
+    There was no prompt indicating which button the player had to press to join the lobby.
+    Also, the players had to navigate upward and click the buttons to raise the number of rounds. As our game is for controller only this was unnecessary and thus I removed it and replaced it with the shoulder buttons.
+    I did the same for the ‘return’ button, this no longer has to be navigated to but instead the player can just press the east button on their controller.
+
+    The navigation felt confusing and too responsive. To fix this I limited the navigation to the three main buttons on the left.
+    I then opted to add button prompts and check for those inputs which would in turn invoke the button events instead.
+
+    This screen was visible between rounds to show the current score. However, a lot of times the players clicked the quit button which instantly took them back to the main menu forfeiting their progress up to that point. This was really frustrating.
+    I added button prompts and removed navigation, instead the player can continue with the usual south button (X) and can return with the usual return input (O).
+    After clicking the east button there now is an extra prompt asking you to confirm to leave the game. For the protection of the player’s current progress.
+
+After making these additions along with several others, I felt it was time to get this game up on an actual storefront so more people will get to play it.
+I then set up a team meeting and the game has since been released on Steam! Check out the trailer below.

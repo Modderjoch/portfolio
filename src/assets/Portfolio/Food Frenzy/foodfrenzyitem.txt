@@ -1,0 +1,48 @@
+Personal portfolio was a rather difficult subject for me. I had so much that I wanted to do but I did not know where to start. I had many ideas, one better than the other and another way too ambitious. Not knowing better I chose the latter. One of the games I have always wanted to make was an economic simulation game with food trucks.
+
+I created a basic setup for my game in Unity. The main things I wanted to implement were good-feeling camera movement, an object placement system and basic UI. These were the iterations that I made:
+
+The core thing I learned from this was that functionality is more important than visuals when prototyping. This is obvious but it is something I have struggled with before as I like to make everything look decent first.
+
+I also wanted to create three different low-poly 3D models. A food truck, a picnic table and finally a tree. As shown in the videos above already.
+
+3D modelling is something I really enjoy, it feels as if I am drawing digitally.
+All three models in a render.
+The details on the picnic table.
+
+Finally, the last thing I did was document the general idea of the game. The document I wrote can be found here.
+
+Time to move on to the next part where I continued my work on food frenzy.
+
+This time around my goal was to create a grid-based building system so that the player could select the object he wanted to buy, place it and earn money.
+
+I was not able to visualize what square you are hovering because that feature got damaged along the way. I did add some more UI and a working economy (although extremely basic).
+
+I tasked myself with creating several trees, bins, stones and more. I wanted to do it all in the same low-poly style, to be able to do so I watched some tutorials about cutting shapes and other simple techniques to create good-looking low-poly models. I also reworked the hotdog on top of the truck.
+
+I also continued work on the same document as the last time. That version can be found here. If I look back at this third outcome I can’t do anything else than wonder why I thought this would be a good idea. I was not able to program a full gameplay loop yet and the document I used was not really made to fit such a vague design process.
+
+I made sure to improve my documentation in the final part of food frenzy which you can read about on the next page.
+
+From the third personal portfolio on I stopped working on the coding part of the game, I decided I wanted to do that in my spare time so that I could focus on UI/UX design for now.
+
+I documented both goals in a process document that can be found here.
+
+The first goal was to improve my personal website. That is this site that you are currently on. It used to be “oeberademakerdesign.wordpress.com”. I made massive improvements based on the user feedback that I gathered using this form.
+
+Then I improved the UI in Food Frenzy to improve the level of responsiveness and clearity. I also added new screens for future features.
+
+    1
+    2
+    3
+
+    Previous
+    Next
+
+    1
+    2
+
+    Previous
+    Next
+
+These and more changes can be found in the document. From this point on I will be developing Food Frenzy on my own time and will hopefully be able to release it somewhere in the future.

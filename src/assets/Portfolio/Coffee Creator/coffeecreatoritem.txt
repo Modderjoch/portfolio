@@ -1,0 +1,16 @@
+
+
+For the last month, I have been working on a first-person simulator in which you buy, roast, process, and sell coffee. To make this project successful I will be using my knowledge from my work experience and my love for coffee.
+
+A big thing for this project is to make sure it works with both a mouse & keyboard as well as a controller. To do so I have used Unity’s new Input System.
+The very basic movement uses both m&k as well as a controller.
+When aiming at an interactable the prompt and name will be shown.
+This computer will be the center to accept quests, obtain rewards and spend them in a shop.
+
+After the basics were done it was time to start working on a quest system, my inspiration for this was PC Building Simulator in which you accept emails with quests, complete them and get your rewards.
+The quest system with quest tracking, the active email (red text title) will be tracked.
+The finished quest system, if all objectives are completed the player will be rewarded.
+
+Obviously, this is nowhere near a finished game loop, I plan to implement a way of obtaining ‘raw’ coffee beans to roast them and pack them up as shown above soon. This would also give the currency an actual purpose.
+
+Also I plan to implement a lot of user feedback soon as you currently don’t know if you actually completed the challenge other than the money coming in immediately.

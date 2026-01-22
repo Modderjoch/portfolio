@@ -1,0 +1,39 @@
+Game Design was the first subject for which I had to create a real game on my own, work out the mechanics, the collectables, the setting, the theme and everything else. All of this was documented in a Game Design Document which you can find here.
+
+If the embed doesn’t load or if you want to see the logic behind it, click here.
+
+During the process, I carefully thought about what I would want the game to look and feel like. I first started documenting my thoughts, giving the main character a small backstory, creating my own pixel art and finally implementing the core aspect “capture” (which was the aspect that had to be in there to be graded)
+
+The theme was not so hard to come up with, I had quickly decided I wanted to make a 2D platformer. I am quite fond of M&M’s and thus I chose to go with them as a theme. For the character, I created a little backstory.
+
+He is called “M” because the second M was taken from him when the King banished him. Now your mission is to help M regain his dignity and replace the corrupt King.
+
+This is done by finishing the three levels present in the current game, Mindful Meadow, Magical Mountain and Mythical Museum. Notice how all of these levels result in M&M when abbreviated.
+Some of the animations I made for my game using Aseprite
+
+To make sure that the “capture” element was present in my game I implemented a few things. According to the dictionary, capture means to collect or take control of. This is shown in all the collectables scattered around the levels. Each can be collected and award the player with a different amount of points. These points will be shown on the UI and a sound will play.
+The logic behind the collectables
+
+This subject was also the first time I made UI for a school project. I struggled a bit because I had never done pixel art before. In the end, I am quite happy with the results. I wanted to go for something inspired by wood, I wanted it to be subtle and see-through so as to not interrupt the gameplay too much.
+
+    1
+    2
+    3
+    4
+    5
+
+    Previous
+    Next
+
+The final UI that was implemented in Mud & Madness.
+
+Another part I really enjoyed working on was the sound design. I found three great background tracks.
+
+The hardest part of making this game was getting the character right, the movement was difficult to program. How high should you jump? How fast should you run? These questions were all answered during the review and feedback part of the subject. People played my game and told me what they think is good, what could and/or should be better and more.
+Background music for Mindful Meadow
+Background music for Magical Mountain
+Background music for Mythical Museum
+
+This subject was really one of the best subjects I had in the entire first year. I enjoyed it thoroughly because I had a lot of creative freedom and I was creating a game as an assignment. Who doesn’t like that?
+
+If you haven’t already, please play the game and see what you think!
