@@ -36,7 +36,7 @@ let index = 0;
         <button class="carousel-arrow" data-dir="-1">‹</button>
 
         <div class="carousel-dots">
-            {images.map((_, i) => <button data-i={i} />)}
+            {images.map((_unused: any, i: number) => <button data-i={i} />)}
         </div>
 
         <button class="carousel-arrow" data-dir="1">›</button>

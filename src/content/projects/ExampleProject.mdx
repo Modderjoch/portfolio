@@ -6,6 +6,7 @@ thumbnail: /images/projects/eden.jpg
 excerpt: A journey during which Eden learns about the Golden Rule. "Do unto others as you would have them do unto you"
 summary: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 github: https://www.github.com
+video: https://www.youtube.com/embed/dQw4w9WgXcQ
 ---
 
 import Gallery from "../../components/visuals/Gallery.astro";
@@ -22,6 +23,7 @@ import AccordionItem from "../../components/general/AccordionItem.astro"
 import Video from "../../components/visuals/Video.astro"
 import Embed from "../../components/visuals/Embed.astro"
 import Spacer from "../../components/general/Spacer.astro"
+import Separator from "../../components/general/Separator.astro"
 
 import a from "../../assets/images/projects/before.jpg"
 import b from "../../assets/images/projects/after.jpg"
@@ -33,7 +35,7 @@ import c from "../../assets/images/projects/eden.jpg"
 <div>
 	<Text >Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</Text>
 	<Spacer height="1rem"></Spacer>
-	<Text >Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</Text>
+	<Text >Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</Text>
 	</div>
 <ImageCompare
 	left="/images/projects/before.jpg"
@@ -73,6 +75,7 @@ const px = Math.round(raw / STEP) * STEP;
 	</AccordionItem>
 </Accordion>
 	<Text >Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</Text>
+
 	<List
 			  ordered
 	type="letters"
@@ -85,6 +88,12 @@ const px = Math.round(raw / STEP) * STEP;
 
 	</List>
 </Columns>
+
+<Carousel
+	images={[a, b, c]}
+	height="400px"
+		  description="Lighting pass comparison">
+	</Carousel>
 
 <Header level='5'>Inline videos</Header>
 <Columns ratios="1fr 2fr" mobileCols={1}>
@@ -105,3 +114,7 @@ const px = Math.round(raw / STEP) * STEP;
 	height="100%"
 />
 </Columns>
+
+<div style="margin-top:20px;">
+<Separator margin="my-8"></Separator>
+</div>

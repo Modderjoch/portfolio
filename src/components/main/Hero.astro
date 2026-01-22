@@ -4,18 +4,25 @@ import Spacer from "../general/Spacer.astro";
 import CvIcon from "../../assets/images/icons/cv.png";
 import CodeIcon from "../../assets/images/icons/code.png";
 import MailIcon from "../../assets/images/icons/mail.png";
+import Typewriter from "astro-typewriter";
 ---
 
 <section class="mb-32 text-center">
     <h1 class="text-4xl font-extrabold" style="font-family: Quicksand;">
         Oebe Rademaker
     </h1>
-    <p
-        class="mt-2 font-semibold text-neutral-800 dark:text-neutral-300"
-        style="font-family:Roboto Condensed; text-transform:uppercase;"
+    <div
+        class="mt-2
+        font-semibold
+        text-neutral-800
+        dark:text-neutral-300"
     >
-        Developer &bull; Designer
-    </p>
+        <Typewriter
+            messages={["Developer", "Designer", "Creative", "Gamer"]}
+            writeSpeed={120}
+            waitWritten={2400}
+        />
+    </div>
     <p
         class="mt-4 text-neutral-500 dark:text-neutral-400 max-w-xl mx-auto text-sm md:text-lg"
         style="font-family:Roboto Condensed;"

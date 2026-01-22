@@ -1,0 +1,81 @@
+---
+const { words = [], speed = 75, pause = 30, className = "" } = Astro.props;
+const id = Math.random().toString(36).slice(2);
+---
+
+<span id={id} class={`typewriter inline-block whitespace-nowrap ${className}`}
+></span>
+
+<style>
+    .typewriter {
+        font-family: inherit;
+        line-height: 1;
+        white-space: nowrap;
+        position: relative;
+        font-family: Roboto Condensed;
+        text-transform: uppercase;
+    }
+
+    .typewriter::after {
+        content: "|";
+        display: inline;
+        opacity: 1;
+        position: absolute;
+        right: 10; /* right:10 was invalid, must be 0 */
+    }
+
+    .typewriter.blink::after {
+        animation: blink 1s steps(1) infinite;
+    }
+
+    @keyframes blink {
+        50% {
+            opacity: 0;
+        }
+    }
+</style>
+
+<script define:vars={{ id, words, speed, pause }}>
+    let i = 0;
+    let offset = 0;
+    let forwards = true;
+    let skip = 0;
+
+    const el = document.getElementById(id);
+
+    function tick() {
+        if (!el) return;
+
+        if (
+            (forwards && offset >= words[i].length) ||
+            (!forwards && offset === 0)
+        ) {
+            el.classList.add("blink");
+        } else {
+            el.classList.remove("blink");
+        }
+
+        if (forwards) {
+            if (offset >= words[i].length) {
+                skip++;
+                if (skip === pause) {
+                    forwards = false;
+                    skip = 0;
+                }
+            }
+        } else {
+            if (offset === 0) {
+                forwards = true;
+                i = (i + 1) % words.length;
+            }
+        }
+
+        if (skip === 0) {
+            offset += forwards ? 1 : -1;
+        }
+
+        el.textContent = words[i].substring(0, offset);
+    }
+
+    setInterval(tick, speed);
+</script>

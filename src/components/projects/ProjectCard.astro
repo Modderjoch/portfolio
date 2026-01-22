@@ -47,7 +47,7 @@ import TagLogo from "../../assets/images/icons/tag.svg";
                 tags.length > 0 && (
                     <div class="flex flex-wrap gap-2 mb-2">
                         <TagLogo class="w-4 h-4 text-orange-500" />
-                        {tags.map((tag) => (
+                        {tags.map((tag: string) => (
                             <span
                                 class="bg-orange-400 text-white text-xs px-2 py-1 rounded"
                                 style="font-family:Roboto Condensed; font-weight: bold;"

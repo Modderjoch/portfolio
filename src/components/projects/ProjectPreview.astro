@@ -4,6 +4,8 @@ import PillLink from "../general/PillLink.astro";
 import GithubLogo from "../../assets/images/logos/github.svg";
 import ExternalLogo from "../../assets/images/icons/external-link.svg";
 import TagLogo from "../../assets/images/icons/tag.svg";
+import Image from "astro/components/Image.astro";
+import Video from "../visuals/Video.astro";
 ---
 
 <div
@@ -30,14 +32,26 @@ import TagLogo from "../../assets/images/icons/tag.svg";
 
             <div class="p-6">
                 <div class="relative rounded-xl overflow-hidden shadow-lg">
-                    <img
-                        src={project.data.thumbnail}
-                        class="w-full h-[360px] object-cover"
-                        alt={project.data.title}
-                    />
+                    {
+                        project.data.video ? (
+                            <Video
+                                src={project.data.video}
+                                type="youtube"
+                                class="w-full h-[360px]"
+                            />
+                        ) : (
+                            <Image
+                                src={project.data.thumbnail}
+                                alt={project.data.title}
+                                width={640}
+                                height={360}
+                                class="w-full h-[360px] object-cover"
+                            />
+                        )
+                    }
 
                     <div
-                        class="absolute inset-0 flex items-end justify-start p-4 gap-3"
+                        class="absolute inset-x-0 bottom-0 flex justify-start p-4 gap-3 bg-gradient-to-t from-black/60 to-transparent"
                     >
                         <PillLink
                             href={`/projects/${project.slug}`}
@@ -45,6 +59,7 @@ import TagLogo from "../../assets/images/icons/tag.svg";
                             width="140px"
                             behavior="new"
                             Logo={ExternalLogo}
+                            class="pointer-events-auto"
                         />
 
                         {
@@ -55,6 +70,7 @@ import TagLogo from "../../assets/images/icons/tag.svg";
                                     width="140px"
                                     behavior="new"
                                     Logo={GithubLogo}
+                                    class="pointer-events-auto"
                                 />
                             )
                         }
@@ -70,7 +86,7 @@ import TagLogo from "../../assets/images/icons/tag.svg";
                 <div class="flex flex-wrap gap-2">
                     <TagLogo class="w-4 h-4 text-orange-500" />
                     {
-                        project.data.tags?.map((t) => (
+                        project.data.tags?.map((t: string) => (
                             <span
                                 class="bg-orange-500 text-white text-xs px-3 py-1 rounded"
                                 style="font-weight: bold;"
