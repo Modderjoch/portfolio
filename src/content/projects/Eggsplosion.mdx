@@ -1,0 +1,60 @@
+---
+title: "Eggsplosion"
+date: 2023-09-01
+tags: [Unity, Game Design, Project Lead, UI Implementation, Steam]
+thumbnail: /images/projects/eggsplosion/capsule.png
+excerpt: Free local multiplayer arena brawler. Made for the party game project at my studies. Later published to Steam with positive reception.
+summary: Eggsplosion is a free local multiplayer twin-stick arena brawler with fighting chickens, bouncing eggs, tons of power-ups and heaps of fun. Eggcellent for a fun evening with your friends!
+video: https://www.youtube.com/embed/a8ybkuajiZE?si=mEshPHpXjj6hiG8B&amp
+github: https://github.com/Modderjoch/Eggsplosion
+extraLinks:
+  - label: "Steam"
+    href: "https://store.steampowered.com/app/2469370/Eggsplosion/"
+    icon: "steam"
+---
+
+import Gallery from "../../components/visuals/Gallery.astro";
+import ImageCompare from "../../components/visuals/ImageCompare.astro";
+import Title from "../../components/text/Title.astro"
+import Columns from "../../components/general/Columns.astro"
+import Text from "../../components/text/Text.astro"
+import Carousel from "../../components/visuals/Carousel.astro"
+import Code from "../../components/text/Code.astro"
+import Header from "../../components/text/Header.astro"
+import List from "../../components/text/List.astro"
+import Accordion from "../../components/general/Accordion.astro"
+import AccordionItem from "../../components/general/AccordionItem.astro"
+import Video from "../../components/visuals/Video.astro"
+import Embed from "../../components/visuals/Embed.astro"
+import Spacer from "../../components/general/Spacer.astro"
+import Separator from "../../components/general/Separator.astro"
+
+import a from "../../assets/images/projects/eden-golden-rule/forest.jpg"
+import b from "../../assets/images/projects/eden-golden-rule/garden.png"
+
+import bracelet from "../../assets/images/projects/eden-golden-rule/bracelet.mp4"
+
+<Title subtitle="An Augmented Reality Experience">Eden's Golden Rule</Title>
+<Text>
+  From February until the end of June 2024, I worked on developing an Augmented Reality (AR) experience designed for the JCK in Amsterdam.
+  The goal of the project was to create a new take on the previously made Eden’s and the Golden Rule VR installation. This ‘Golden Rule’ is as follows:
+  <br></br>
+      “In everything, do to others what you would have them do to you.”
+      Gospel of Matthew (7:12)
+
+  <br></br>
+</Text>
+<Columns cols="3">
+  <div>
+    <Video src="/videos/projects/eden-golden-rule/paper-implementation.mp4" controls={false} autoplay={true} loop={true} muted={true} />
+    <Text>An implementation of "paper" physics. Iterated upon and used in the second task where the player collects pages from an old book.</Text>
+  </div>
+  <div>
+    <Video src="/videos/projects/eden-golden-rule/flowerpack.mp4" controls={false} autoplay={true} loop={true} muted={true} />
+    <Text>Seed pack to plant new flowers. Created for the third task, where the player repopulates the forest with flowers.</Text>
+  </div>
+  <div>
+    <Video src="/videos/projects/eden-golden-rule/bread-family.mp4" controls={false} autoplay={true} loop={true} muted={true} />
+    <Text>Last-minute solution to replace full animation, a visual-novel inspired frame switch system.</Text>
+  </div>
+</Columns>
