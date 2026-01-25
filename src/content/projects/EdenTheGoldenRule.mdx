@@ -1,0 +1,59 @@
+---
+title: "Eden's Golden Rule"
+date: 2025-06-29
+tags: [Unity, Programming, Augmented Reality, Sole Developer]
+thumbnail: /images/projects/eden-golden-rule/garden.png
+excerpt: An augmented reality installation developed for the JCK in Amsterdam. Developed and designed in a multi-discplinary team of six.
+summary: From February until the end of June 2024, I worked on developing an Augmented Reality (AR) experience designed for the JCK in Amsterdam. The goal of the project was to create a new take on the previously made Eden’s and the Golden Rule VR installation.
+github: https://github.com/Modderjoch/eden-golden-rule
+video: https://www.youtube.com/embed/9LP6I2mh8B8?si=5VpPX4phuJxFfO7C
+extraLinks:
+  - label: "Museum"
+    href: "https://jck.nl/en/agenda/eden-and-golden-rule"
+---
+
+import Gallery from "../../components/visuals/Gallery.astro";
+import ImageCompare from "../../components/visuals/ImageCompare.astro";
+import Title from "../../components/text/Title.astro"
+import Columns from "../../components/general/Columns.astro"
+import Text from "../../components/text/Text.astro"
+import Carousel from "../../components/visuals/Carousel.astro"
+import Code from "../../components/text/Code.astro"
+import Header from "../../components/text/Header.astro"
+import List from "../../components/text/List.astro"
+import Accordion from "../../components/general/Accordion.astro"
+import AccordionItem from "../../components/general/AccordionItem.astro"
+import Video from "../../components/visuals/Video.astro"
+import Embed from "../../components/visuals/Embed.astro"
+import Spacer from "../../components/general/Spacer.astro"
+import Separator from "../../components/general/Separator.astro"
+
+import a from "../../assets/images/projects/eden-golden-rule/forest.jpg"
+import b from "../../assets/images/projects/eden-golden-rule/garden.png"
+
+import bracelet from "../../assets/images/projects/eden-golden-rule/bracelet.mp4"
+
+<Title subtitle="An Augmented Reality Experience">Eden's Golden Rule</Title>
+<Text>
+  From February until the end of June 2024, I worked on developing an Augmented Reality (AR) experience designed for the JCK in Amsterdam.
+  The goal of the project was to create a new take on the previously made Eden’s and the Golden Rule VR installation. This ‘Golden Rule’ is as follows:
+  <br></br>
+      “In everything, do to others what you would have them do to you.”
+      Gospel of Matthew (7:12)
+
+  <br></br>
+</Text>
+<Columns cols="3">
+  <div>
+    <Video src="/videos/projects/eden-golden-rule/paper-implementation.mp4" controls={false} autoplay={true} loop={true} muted={true} />
+    <Text>An implementation of "paper" physics. Iterated upon and used in the second task where the player collects pages from an old book.</Text>
+  </div>
+  <div>
+    <Video src="/videos/projects/eden-golden-rule/flowerpack.mp4" controls={false} autoplay={true} loop={true} muted={true} />
+    <Text>Seed pack to plant new flowers. Created for the third task, where the player repopulates the forest with flowers.</Text>
+  </div>
+  <div>
+    <Video src="/videos/projects/eden-golden-rule/bread-family.mp4" controls={false} autoplay={true} loop={true} muted={true} />
+    <Text>Last-minute solution to replace full animation, a visual-novel inspired frame switch system.</Text>
+  </div>
+</Columns>
