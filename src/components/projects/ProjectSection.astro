@@ -7,102 +7,38 @@ const projects = await getCollection("projects");
 projects.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 ---
 
-<section class="relative w-screen overflow-hidden py-10">
-    <div class="carousel-track flex items-center gap-8">
-        {
-            projects.map((project, index) => (
-                <div class="carousel-item" data-index={index}>
-                    <ProjectCard project={project} />
-                </div>
-            ))
-        }
+<h1
+    class="text-2xl font-extrabold"
+    style="text-align:center; font-family: Quicksand; margin-bottom: 50px;"
+>
+    Projects (currently moving things around 👷‍♂️)
+</h1>
+<section class="mb-20">
+    <div
+        class="grid gap-6 grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
+    >
+        {projects.map((project) => <ProjectCard project={project} />)}
     </div>
-
-    <button
-        class="absolute left-2 top-1/2 -translate-y-1/2 z-20 prev-btn text-3xl"
-        >‹</button
-    >
-    <button
-        class="absolute right-2 top-1/2 -translate-y-1/2 z-20 next-btn text-3xl"
-        >›</button
-    >
 </section>
 
-<style>
-    .carousel-track {
-        transition: transform 0.5s ease;
-        position: relative;
-    }
-
-    .carousel-item {
-        flex: 0 0 20%; /* 5 items across full width */
-        transition:
-            transform 0.5s ease,
-            filter 0.5s ease,
-            opacity 0.5s ease;
-    }
-</style>
+{projects.map((project) => <ProjectPreview project={project} />)}
 
 <script>
-    const track = document.querySelector(".carousel-track");
-    const items = Array.from(track.querySelectorAll(".carousel-item"));
-    const total = items.length;
-    let centerIndex = 0;
-
-    // Create a virtual circular array for seamless looping
-    function getVirtualIndex(i) {
-        return ((i % total) + total) % total;
-    }
-
-    function updateCarousel() {
-        items.forEach((item, i) => {
-            const distance = Math.min(
-                Math.abs(getVirtualIndex(i - centerIndex)),
-                total - Math.abs(getVirtualIndex(i - centerIndex)),
-            );
-
-            if (distance === 0) {
-                item.style.transform = "scale(1.1)";
-                item.style.filter = "blur(0)";
-                item.style.opacity = "1";
-                item.style.zIndex = "3";
-            } else if (distance === 1) {
-                item.style.transform = "scale(1)";
-                item.style.filter = "blur(0)";
-                item.style.opacity = "1";
-                item.style.zIndex = "2";
-            } else if (distance === 2) {
-                item.style.transform = "scale(0.85)";
-                item.style.filter = "blur(4px)";
-                item.style.opacity = "0.5";
-                item.style.zIndex = "1";
-            } else {
-                item.style.transform = "scale(0.75)";
-                item.style.filter = "blur(6px)";
-                item.style.opacity = "0";
-                item.style.zIndex = "0";
-            }
+    document.querySelectorAll(".project-card").forEach((card) => {
+        card.addEventListener("click", () => {
+            const modal = document.getElementById(card.dataset.modal);
+            modal.classList.remove("hidden");
+            modal.classList.add("flex");
+            document.body.style.overflow = "hidden";
         });
-
-        // Center the middle item visually
-        const centerItem = items[getVirtualIndex(centerIndex)];
-        const offset =
-            centerItem.offsetLeft +
-            centerItem.offsetWidth / 2 -
-            window.innerWidth / 2;
-        track.style.transform = `translateX(${-offset}px)`;
-    }
-
-    document.querySelector(".prev-btn").addEventListener("click", () => {
-        centerIndex = getVirtualIndex(centerIndex - 1);
-        updateCarousel();
     });
 
-    document.querySelector(".next-btn").addEventListener("click", () => {
-        centerIndex = getVirtualIndex(centerIndex + 1);
-        updateCarousel();
+    document.querySelectorAll(".modal-close, .modal-backdrop").forEach((el) => {
+        el.addEventListener("click", () => {
+            const modal = el.closest("[id^='modal-']");
+            modal.classList.add("hidden");
+            modal.classList.remove("flex");
+            document.body.style.overflow = "";
+        });
     });
-
-    window.addEventListener("resize", updateCarousel);
-    updateCarousel();
 </script>

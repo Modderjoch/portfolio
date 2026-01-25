@@ -3,9 +3,16 @@ const { project } = Astro.props;
 import PillLink from "../general/PillLink.astro";
 import GithubLogo from "../../assets/images/logos/github.svg";
 import ExternalLogo from "../../assets/images/icons/external-link.svg";
+import SteamLogo from "../../assets/images/logos/steam.svg";
+import ItchLogo from "../../assets/images/logos/itchio.svg";
 import TagLogo from "../../assets/images/icons/tag.svg";
 import { Image } from "astro:assets";
 import Video from "../visuals/Video.astro";
+
+const iconMap = {
+    steam: SteamLogo,
+    itch: ItchLogo,
+};
 ---
 
 <div
@@ -73,6 +80,22 @@ import Video from "../visuals/Video.astro";
                                     class="pointer-events-auto"
                                 />
                             )
+                        }
+
+                        {
+                            project.data.extraLinks?.map((link) => {
+                                const Logo = iconMap[link.icon] ?? ExternalLogo;
+                                return (
+                                    <PillLink
+                                        href={link.href}
+                                        label={link.label}
+                                        width="140px"
+                                        behavior="new"
+                                        Logo={Logo}
+                                        class="pointer-events-auto"
+                                    />
+                                );
+                            })
                         }
                     </div>
                 </div>
