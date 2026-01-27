@@ -1,0 +1,50 @@
+---
+title: "Geometry Nodes"
+date: 2022-12-12
+tags: [Blender, Geometry Nodes, Visual Programming]
+thumbnail: /images/projects/geometry-nodes/thumbnail.jpg
+excerpt: A collection of geometry nodes I created in Blender that showcase unique and interesting use cases.
+summary: In the winter of 2022, I started working on Geometry Nodes in Blender. This topic looked really interesting to me and I had seen multiple artists creating the most beautiful models by using this feature in the correct way.
+video: https://www.youtube.com/embed/oR1z6EwhuB4?si=8rf2AQaCAWegLI4p
+# extraLinks:
+#   - label: "Itch.io"
+#     href: "https://modderjoch.itch.io/stadsbouer"
+#     icon: "itch"
+---
+
+import Title from "../../components/text/Title.astro"
+import Columns from "../../components/general/Columns.astro"
+import Text from "../../components/text/Text.astro"
+import Accordion from "../../components/general/Accordion.astro"
+import AccordionItem from "../../components/general/AccordionItem.astro"
+import Video from "../../components/visuals/Video.astro"
+import { Image } from "astro:assets"
+
+import legoNodes from "../../assets/images/projects/geometry-nodes/legoNodes.png"
+import worldNodes from "../../assets/images/projects/geometry-nodes/worldNodes.png"
+
+<Title subtitle="A collection of creative applications">Geometry Nodes</Title>
+<Columns>
+  <Accordion>
+    <AccordionItem open={true} title="LEGO Node">
+      <Video type="youtube" src="https://www.youtube.com/embed/oR1z6EwhuB4?si=8rf2AQaCAWegLI4p"/>
+      <Text>
+        I created this geometry node with the help of a tutorial from Joey Carlino. Then I applied it on multiple projects I have previously worked on as well as a brand new project I made specifically for this node.
+      </Text>
+      <Image src={legoNodes} alt=""/>
+      <Text>
+        What I’m trying to do here is replace a certain amount of points in the mesh’s volume with lego blocks. Based on the variable quality there will be more points and thus more lego blocks. Then I’m applying the old UVs to see what color is nearest and applying said color on the brick.
+      </Text>
+    </AccordionItem>
+  </Accordion>
+  <Accordion>
+    <AccordionItem open={true} title="World Gen Node">
+      <Video type="youtube" src="https://www.youtube.com/embed/_bn3MzfOZoY?si=16-7avgQlpuQfq4E"/>
+      <Text>
+        I created this geometry node after being inspired by this post on reddit. I then researched a few techniques and started working on this project. After about a week I finished and this is the end result.
+        The node setup
+      </Text>
+      <Image src={worldNodes} alt=""/>
+    </AccordionItem>
+  </Accordion>
+</Columns>

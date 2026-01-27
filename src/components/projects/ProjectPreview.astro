@@ -52,52 +52,47 @@ const iconMap = {
                                 alt={project.data.title}
                                 width={640}
                                 height={360}
-                                class="w-full h-[360px] object-cover"
+                                class="w-full h-[160px] sm:h-[280px] md:h-[360px] object-cover"
+                            />
+                        )
+                    }
+                </div>
+
+                <div class="mt-4 pb-2 flex flex-wrap gap-3 justify-start">
+                    <PillLink
+                        href={`/projects/${project.slug}`}
+                        label="Full project"
+                        width="140px"
+                        behavior="new"
+                        Logo={ExternalLogo}
+                    />
+
+                    {
+                        project.data.github && (
+                            <PillLink
+                                href={project.data.github}
+                                label="GitHub"
+                                width="140px"
+                                behavior="new"
+                                Logo={GithubLogo}
                             />
                         )
                     }
 
-                    <div
-                        class="absolute inset-x-0 bottom-0 flex justify-start p-4 gap-3 bg-gradient-to-t from-black/60 to-transparent"
-                    >
-                        <PillLink
-                            href={`/projects/${project.slug}`}
-                            label="Full project"
-                            width="140px"
-                            behavior="new"
-                            Logo={ExternalLogo}
-                            class="pointer-events-auto"
-                        />
-
-                        {
-                            project.data.github && (
+                    {
+                        project.data.extraLinks?.map((link) => {
+                            const Logo = iconMap[link.icon] ?? ExternalLogo;
+                            return (
                                 <PillLink
-                                    href={project.data.github}
-                                    label="GitHub"
+                                    href={link.href}
+                                    label={link.label}
                                     width="140px"
                                     behavior="new"
-                                    Logo={GithubLogo}
-                                    class="pointer-events-auto"
+                                    Logo={Logo}
                                 />
-                            )
-                        }
-
-                        {
-                            project.data.extraLinks?.map((link) => {
-                                const Logo = iconMap[link.icon] ?? ExternalLogo;
-                                return (
-                                    <PillLink
-                                        href={link.href}
-                                        label={link.label}
-                                        width="140px"
-                                        behavior="new"
-                                        Logo={Logo}
-                                        class="pointer-events-auto"
-                                    />
-                                );
-                            })
-                        }
-                    </div>
+                            );
+                        })
+                    }
                 </div>
             </div>
 
