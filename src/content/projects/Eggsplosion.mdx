@@ -13,43 +13,115 @@ extraLinks:
     icon: "steam"
 ---
 
-import Gallery from "../../components/visuals/Gallery.astro";
 import ImageCompare from "../../components/visuals/ImageCompare.astro";
 import Title from "../../components/text/Title.astro"
 import Columns from "../../components/general/Columns.astro"
 import Text from "../../components/text/Text.astro"
-import Carousel from "../../components/visuals/Carousel.astro"
-import Code from "../../components/text/Code.astro"
 import Header from "../../components/text/Header.astro"
 import List from "../../components/text/List.astro"
-import Accordion from "../../components/general/Accordion.astro"
-import AccordionItem from "../../components/general/AccordionItem.astro"
-import Video from "../../components/visuals/Video.astro"
+// import Accordion from "../../components/general/Accordion.astro"
+// import AccordionItem from "../../components/general/AccordionItem.astro"
 import Embed from "../../components/visuals/Embed.astro"
-import Spacer from "../../components/general/Spacer.astro"
 import Separator from "../../components/general/Separator.astro"
+import { Image } from "astro:assets";
 
-<Title subtitle="An Augmented Reality Experience">Eden's Golden Rule</Title>
+import supermarket from "../../assets/images/projects/eggsplosion/supermarket-final.png"
+import powerupdesign from "../../assets/images/projects/eggsplosion/powerup-design.jpg"
+import powerupdesign2 from "../../assets/images/projects/eggsplosion/powerup-design-2.jpg"
+import powerupdesign3 from "../../assets/images/projects/eggsplosion/powerup-design-3.jpg"
+import mapdesign from "../../assets/images/projects/eggsplosion/map-design-3.png"
+
+<Title subtitle="A twin-stick arena brawler">Eggsplosion</Title>
+<Columns>
+  <div>
+    <Text>
+      From April until June 2022 I worked on a unique local multiplayer game where you play as chickens and have to be the last chicken standing. 
+      This was done in a <b>multi-disciplinary</b> team of seven, in which I was both a <b>game designer</b> and <b>project lead</b>. Together with two other designers, three artists and one 
+      programmer we created Eggsplosion.
+    </Text>
+  </div>
+  <div>
+    <Text>
+      Eggsplosion is a twin-stick arena brawler, meaning the preferred input is a controller, and during gameplay you run around collecting power-ups in a set arena.
+      The goal is to remain until the end while surviving all other players. There are environmental dangers and plenty of obstacles to hide behind.
+    </Text>
+  </div>
+  
+</Columns>
+<Separator/>
+<Columns desktopTemplate="1fr 1fr">
+<div>
+  <Header>Concept & responsibilities</Header>
+  <Text>
+    As a designer during this project I was responsible for the gameplay design, level design and finally UI implementation. 
+    Together with my fellow designers we decided upon the following game principles:
+  </Text>
+  <List ordered items={["Fast paced", "Short and snappy rounds", "Chaos by design", "Humour is a feature"]}></List>
+  <Text>
+    Each of the designers built one of the arenas, the first one being my design. This was the only map with an environmental danger, after time
+    the pig sat in the middle would activate a red nuke button. After which there would be multiple rockets dropping down all over the map.
+    <br/>
+    This helped pacing the games and created a lot of chaos under players when they had to focus on more than each other.
+  </Text>
+</div>
+<div>
+  <Header>Design approach</Header>
+  <Text>
+    We went for a fun-first approach through quick iterations and early playtesting. With a wide range of power-ups and solid level design we tried to
+    invoke chaos and make it a game during which you can hear laughing at all times. The results was more than positive, players enjoyed the loop and were curious
+    to see how they could do better next time. Even better, there were many laughs and a lot of fun was had during every playtest.
+  </Text>
+  <div style="margin-top: 30px; text-align:center;">
+    <ImageCompare height="00px" left={supermarket} right={mapdesign}/>
+    <Text>Comparison of the supermarket designed by me, and the original sketch.</Text>
+  </div>
+</div>
+</Columns>
+<Separator/>
+
+<Columns desktopTemplate="2fr 1fr">
+<div>
+<Header>Gameplay design</Header>
 <Text>
-  From February until the end of June 2024, I worked on developing an Augmented Reality (AR) experience designed for the JCK in Amsterdam.
-  The goal of the project was to create a new take on the previously made Eden’s and the Golden Rule VR installation. This ‘Golden Rule’ is as follows:
-  <br></br>
-      “In everything, do to others what you would have them do to you.”
-      Gospel of Matthew (7:12)
-
-  <br></br>
+  A big part of the gameplay design for Eggsplosion revolved around the power-ups placed around the map. These generally belonged to a few broader categories
+  that we came up during our design sessions.
+  <br/>
+  Eventually we decided against some of them, and chose others to work out. Meanwhile the developer in the team started implementing a framework for them.
 </Text>
-<Columns cols="3">
+</div>
+<div>
+  <Header>Powerup categories</Header>
+  <List items={["Immediate use (on yourself)", "Throw to use", "Immediate use (on others)"]}></List>
+</div>
+</Columns>
+<Columns desktopTemplate="3fr 3fr 2fr">
   <div>
-    <Video src="/videos/projects/eden-golden-rule/paper-implementation.mp4" controls={false} autoplay={true} loop={true} muted={true} />
-    <Text>An implementation of "paper" physics. Iterated upon and used in the second task where the player collects pages from an old book.</Text>
+    <Image src={powerupdesign2} alt=""/>
+    <Text>Result of our first power-up brainstorm session. The idea here was mostly to come up with as much variation as possible, and deciding what is feasible later.</Text>
   </div>
   <div>
-    <Video src="/videos/projects/eden-golden-rule/flowerpack.mp4" controls={false} autoplay={true} loop={true} muted={true} />
-    <Text>Seed pack to plant new flowers. Created for the third task, where the player repopulates the forest with flowers.</Text>
+    <Image src={powerupdesign} alt=""/>
+    <Text>The next stage where we rated and chose our desired power-ups that would be implemented. This was discussed among the three designers and with development times in mind.</Text>
   </div>
   <div>
-    <Video src="/videos/projects/eden-golden-rule/bread-family.mp4" controls={false} autoplay={true} loop={true} muted={true} />
-    <Text>Last-minute solution to replace full animation, a visual-novel inspired frame switch system.</Text>
+    <Image src={powerupdesign3} alt=""/>
+    <Text>A matrix grid to determine what power-up would be allowed to be active with another, and which other that would be.</Text>
   </div>
 </Columns>
+<Separator/>
+<Header>Move to Steam</Header>
+<Text>
+  Towards the end of the spring and the beginning of summer in 2023, I encouraged the team to pick everything back up and move towards publishing the game on Steam.
+  This was eventually done on September 1st, 2023. During the move I mostly implemented extra UI to comply with the Steam Deck rules, as well as making it generally easier
+  playing with different controllers. We implemented Steam Remote Play which helped us move it from just a local multiplayer to a networked one without much effort.
+  <br/>
+  On the publishing side of things I attempted to do some marketing and took care of everything on Steam's side of things, something that has taught me quite a lot
+  and was great fun to do as well. Now the game is playable on one of the biggest platforms, and has been (positively) reviewed by fourteen people.
+</Text>
+<div style="display:flex; justify-content:center; margin-top:30px;">
+  <Embed
+    src="https://store.steampowered.com/widget/2469370/"
+    width="600px"
+    height="200px"
+  ></Embed>
+</div>

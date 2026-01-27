@@ -40,7 +40,6 @@ const id = Math.random().toString(36).slice(2);
     }
 
     .accordion-content[data-open="true"] {
-        max-height: 500px;
         padding-bottom: 1rem;
     }
 
@@ -58,11 +57,25 @@ const id = Math.random().toString(36).slice(2);
         document.querySelectorAll(".accordion-header").forEach((btn) => {
             btn.addEventListener("click", () => {
                 const content = document.getElementById(btn.dataset.id);
-                const open = content.dataset.open === "true";
+                const isOpen = content.dataset.open === "true";
 
-                content.dataset.open = !open;
-                btn.classList.toggle("active");
+                if (isOpen) {
+                    content.style.maxHeight = "0px";
+                    content.dataset.open = "false";
+                    btn.classList.remove("active");
+                } else {
+                    content.style.maxHeight = content.scrollHeight + "px";
+                    content.dataset.open = "true";
+                    btn.classList.add("active");
+                }
             });
+
+            // Set initial state
+            const content = document.getElementById(btn.dataset.id);
+            if (content.dataset.open === "true") {
+                content.style.maxHeight = content.scrollHeight + "px";
+                btn.classList.add("active");
+            }
         });
     });
 </script>
