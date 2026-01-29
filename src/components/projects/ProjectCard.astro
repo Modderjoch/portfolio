@@ -1,7 +1,5 @@
 ---
 const { project } = Astro.props;
-const excerpt = project.data.excerpt ?? "";
-const tags = project.data.tags ?? [];
 import TagLogo from "../../assets/images/icons/tag.svg";
 import { Image } from "astro:assets";
 ---
@@ -11,17 +9,29 @@ import { Image } from "astro:assets";
     data-modal={`modal-${project.slug}`}
 >
     <article
-        class="rounded-md bg-white dark:bg-slate-900 overflow-hidden transition-transform shadow-md dark:shadow-white/20 dark:inset-shadow-white/20 inset-shadow-xs hover:scale-105"
+        class="rounded-md bg-white dark:bg-slate-900 overflow-hidden transition-transform shadow-md dark:shadow-white/20 dark:inset-shadow-white/20 inset-shadow-xs hover:scale-105
+        min-h-[300px] md:min-h-[330px] lg:min-h-[420px]"
     >
         {
             project.data.thumbnail && (
-                <Image
-                    src={project.data.thumbnail}
-                    alt={project.data.title}
-                    class="w-full h-48 object-cover rounded-t-lg"
-                    width="1"
-                    height="1"
-                />
+                <div class="relative">
+                    <Image
+                        src={project.data.thumbnail}
+                        alt={project.data.title}
+                        class="w-full h-80 md:h-75 lg:h-45 object-cover rounded-t-lg"
+                        width="1"
+                        height="1"
+                    />
+
+                    {project.data.label && (
+                        <span
+                            class="absolute top-2 right-2 bg-orange-500 text-white text-xs px-2 py-1 rounded shadow"
+                            style="font-family: Quicksand; font-weight: bold;"
+                        >
+                            {project.data.label}
+                        </span>
+                    )}
+                </div>
             )
         }
 
@@ -36,23 +46,23 @@ import { Image } from "astro:assets";
             </h3>
 
             {
-                excerpt && (
+                project.data.excerpt && (
                     <p
-                        class="text-neutral-500 dark:text-neutral-400 text-sm mb-4 line-clamp-3"
+                        class="text-neutral-500 dark:text-neutral-400 text-sm mb-4 line-clamp-2 lg:line-clamp-3 h-[2.5rem] lg:h-[3.75rem]"
                         style="font-family:Roboto Condensed"
                     >
-                        {excerpt}
+                        {project.data.excerpt}
                     </p>
                 )
             }
 
             {
-                tags.length > 0 && (
+                project.data.tags.length > 0 && (
                     <div class="flex flex-wrap gap-2 mb-2">
-                        <TagLogo class="w-4 h-4 text-orange-500" />
-                        {tags.map((tag: string) => (
+                        {/* <TagLogo class="w-4 h-4 text-orange-500" /> */}
+                        {project.data.tags.map((tag: string) => (
                             <span
-                                class="bg-orange-400 text-neutral-700 text-xs px-2 py-1 rounded"
+                                class="border-[2px] border-orange-500 text-neutral-600 dark:text-neutral-300 text-xs px-2 py-1 rounded-full"
                                 style="font-family:Roboto Condensed; font-weight: bold;"
                             >
                                 {tag}
