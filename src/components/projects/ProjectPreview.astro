@@ -1,11 +1,12 @@
 ---
 const { project } = Astro.props;
 import PillLink from "../general/PillLink.astro";
-import GithubLogo from "../../assets/images/logos/github.svg";
-import ExternalLogo from "../../assets/images/icons/external-link.svg";
-import SteamLogo from "../../assets/images/logos/steam.svg";
-import ItchLogo from "../../assets/images/logos/itchio.svg";
-import TagLogo from "../../assets/images/icons/tag.svg";
+import GithubLogo from "@assets/images/logos/github.svg";
+import ExternalLogo from "@assets/images/icons/external-link.svg";
+import SteamLogo from "@assets/images/logos/steam.svg";
+import ItchLogo from "@assets/images/logos/itchio.svg";
+import TagLogo from "@assets/images/icons/tag.svg";
+import CalendarLogo from "@assets/images/icons/calendar.svg";
 import { Image } from "astro:assets";
 import Video from "../visuals/Video.astro";
 
@@ -32,12 +33,19 @@ const iconMap = {
 
         <div class="flex flex-col">
             <div
-                class="px-6 py-4 border-b border-neutral-200 dark:border-neutral-800"
+                class="px-6 py-4 flex items-center justify-between"
+                style="margin-right: 20px; font-family: Quicksand; font-weight:bolder;"
             >
-                <h2 class="text-2xl font-bold">{project.data.title}</h2>
+                <h2 class="text-xl">{project.data.title}</h2>
+                <span
+                    class="text-xl text-neutral-500 dark:text-neutral-400 flex items-center gap-2"
+                >
+                    <CalendarLogo class="w-4 h-4" />
+                    {project.data.date.toLocaleDateString("nl-NL")}
+                </span>
             </div>
 
-            <div class="p-6">
+            <div class="p-4">
                 <div class="relative rounded-xl overflow-hidden shadow-lg">
                     {
                         project.data.video ? (
@@ -52,7 +60,7 @@ const iconMap = {
                                 alt={project.data.title}
                                 width={640}
                                 height={360}
-                                class="w-full h-[160px] sm:h-[280px] md:h-[360px] object-cover"
+                                class="w-full h-[160px] sm:h-[280px] md:h-[480px] object-cover"
                             />
                         )
                     }
@@ -98,16 +106,20 @@ const iconMap = {
 
             <div class="px-8 pb-8 space-y-4">
                 <p class="text-neutral-500 dark:text-neutral-400">
-                    {project.data.summary}
+                    {
+                        project.data.summary &&
+                        project.data.summary.trim() !== ""
+                            ? project.data.summary
+                            : project.data.excerpt
+                    }
                 </p>
 
                 <div class="flex flex-wrap gap-2">
-                    <TagLogo class="w-4 h-4 text-orange-500" />
                     {
                         project.data.tags?.map((t: string) => (
                             <span
-                                class="bg-orange-500 text-white text-xs px-3 py-1 rounded"
-                                style="font-weight: bold;"
+                                class="border-[2px] border-orange-500 text-neutral-600 dark:text-neutral-300 px-2 py-1 rounded-full"
+                                style="font-family:Roboto Condensed; font-weight: bold;"
                             >
                                 {t}
                             </span>

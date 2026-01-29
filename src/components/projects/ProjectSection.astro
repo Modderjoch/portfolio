@@ -4,16 +4,21 @@ import ProjectCard from "./ProjectCard.astro";
 import ProjectPreview from "./ProjectPreview.astro";
 
 const projects = await getCollection("projects");
-projects.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+projects.sort((a, b) => {
+    const orderA = a.data.order ?? Number.MAX_SAFE_INTEGER;
+    const orderB = b.data.order ?? Number.MAX_SAFE_INTEGER;
+
+    return orderA - orderB;
+});
 ---
 
-<h1
-    class="text-2xl font-extrabold"
-    style="text-align:center; font-family: Quicksand; margin-bottom: 50px;"
->
-    Projects (currently moving things around 👷‍♂️)
-</h1>
 <section class="mb-20">
+    <h1
+        class="text-2xl font-extrabold"
+        style="text-align:center; font-family: Quicksand; margin-bottom: 50px;"
+    >
+        Projects (currently moving things around 👷‍♂️)
+    </h1>
     <div
         class="grid gap-6 grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
     >
