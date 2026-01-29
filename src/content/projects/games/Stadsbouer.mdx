@@ -1,0 +1,51 @@
+---
+title: "Stadsbouer"
+date: 2023-05-10
+label: Game 🎮
+order: 30
+tags: [Unity, Programming, Game Design, Turn-based]
+thumbnail: /images/projects/stadsbouer/thumbnail.png
+excerpt: Turn-based 3D card and dice game, collect coins through lucky rolls, steal from your opponent, and build the biggest city first!
+summary: 
+github: https://github.com/Modderjoch/Stadsbouer
+extraLinks:
+  - label: "Itch.io"
+    href: "https://modderjoch.itch.io/stadsbouer"
+    icon: "itch"
+---
+
+import Title from "@components/text/Title.astro"
+import Columns from "@components/general/Columns.astro"
+import Text from "@components/text/Text.astro"
+import Embed from "@components/visuals/Embed.astro"
+import { Image } from "astro:assets"
+
+import sketch from "@assets/images/projects/stadsbouer/sketch.png"
+
+<Title>Stadsbouer</Title>
+<Columns desktopTemplate="2fr 1fr">
+<div>
+<Text>
+  In January of 2023 I went abroad to Birmingham, where I studied a minor in Video Game Digital Art. The final project that period had to be a prototype of a game, solo-developed or in a team.
+  The game can be found on itch.io. It is a mere proof of concept and because of that, there are still things missing and parts left unpolished.
+  <br/>
+  I have worked on this game for around 6 weeks. Mainly focussing on the programming side of things this time around.
+  <br/>
+  It all started with a very basic game concept, I wanted to combine the card game and city builder genres. This would be done in Unity, making use of local turn-based gameplay where the players could play cards and throw a dice to activate said cards.
+  <br/>
+  The gameplay would be based around earning money through activating your cards/buildings which would then lead to more money etc.
+</Text>
+</div>
+<div>
+  <Image src={sketch} alt=""></Image>
+  <Text>One of the first sketches for the game.</Text>
+</div>
+</Columns>
+
+<div style="display:flex; justify-content:center; margin-top:30px;">
+  <Embed
+    src="https://itch.io/embed/2065034"
+    width="600px"
+    height="200px"
+  ></Embed>
+</div>
