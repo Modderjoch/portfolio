@@ -5,6 +5,7 @@ import GithubLogo from "@assets/images/logos/github.svg";
 import ExternalLogo from "@assets/images/icons/external-link.svg";
 import SteamLogo from "@assets/images/logos/steam.svg";
 import ItchLogo from "@assets/images/logos/itchio.svg";
+import RedditLogo from "@assets/images/logos/reddit.svg";
 import TagLogo from "@assets/images/icons/tag.svg";
 import CalendarLogo from "@assets/images/icons/calendar.svg";
 import { Image } from "astro:assets";
@@ -13,6 +14,7 @@ const link = project.data.link ?? `/projects/${slug}`;
 const iconMap = {
     steam: SteamLogo,
     itch: ItchLogo,
+    reddit: RedditLogo,
 };
 ---
 
