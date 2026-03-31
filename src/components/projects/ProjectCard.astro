@@ -1,12 +1,12 @@
 ---
-const { project } = Astro.props;
+const { project, slug } = Astro.props;
 import TagLogo from "../../assets/images/icons/tag.svg";
 import { Image } from "astro:assets";
 ---
 
 <button
     class="block text-left w-full project-card"
-    data-modal={`modal-${project.slug}`}
+    data-modal={`modal-${slug}`}
 >
     <article
         class="rounded-md bg-white dark:bg-slate-900 overflow-hidden transition-transform shadow-md dark:shadow-white/20 dark:inset-shadow-white/20 inset-shadow-xs hover:scale-105

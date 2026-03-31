@@ -1,5 +1,5 @@
 ---
-const { project } = Astro.props;
+const { project, slug } = Astro.props;
 import PillLink from "../general/PillLink.astro";
 import GithubLogo from "@assets/images/logos/github.svg";
 import ExternalLogo from "@assets/images/icons/external-link.svg";
@@ -9,7 +9,7 @@ import TagLogo from "@assets/images/icons/tag.svg";
 import CalendarLogo from "@assets/images/icons/calendar.svg";
 import { Image } from "astro:assets";
 import Video from "../visuals/Video.astro";
-
+const link = project.data.link ?? `/projects/${slug}`;
 const iconMap = {
     steam: SteamLogo,
     itch: ItchLogo,
@@ -17,7 +17,7 @@ const iconMap = {
 ---
 
 <div
-    id={`modal-${project.slug}`}
+    id={`modal-${slug}`}
     class="fixed inset-0 z-50 hidden items-center justify-center backdrop-blur-sm bg-black/40"
 >
     <div class="absolute inset-0 modal-backdrop"></div>
@@ -68,7 +68,7 @@ const iconMap = {
 
                 <div class="mt-4 pb-2 flex flex-wrap gap-3 justify-start">
                     <PillLink
-                        href={`/projects/${project.slug}`}
+                        href={`${link}`}
                         label="Full project"
                         width="140px"
                         behavior="new"
