@@ -3,31 +3,56 @@ import { getCollection } from "astro:content";
 import ProjectCard from "./ProjectCard.astro";
 import ProjectPreview from "./ProjectPreview.astro";
 
-const projects = await getCollection("projects");
-projects.sort((a, b) => {
-    const orderA = a.data.order ?? Number.MAX_SAFE_INTEGER;
-    const orderB = b.data.order ?? Number.MAX_SAFE_INTEGER;
+interface Props {
+    category: "main" | "side";
+    title: string;
+    description: string;
+}
 
-    return orderA - orderB;
-});
+const { category, title, description } = Astro.props;
+
+const allProjects = await getCollection("projects");
+const projects = allProjects
+    .filter((p) => p.id.startsWith(`${category}/`))
+    .sort((a, b) => {
+        const orderA = a.data.order ?? Number.MAX_SAFE_INTEGER;
+        const orderB = b.data.order ?? Number.MAX_SAFE_INTEGER;
+        return orderA - orderB;
+    })
+    .map((p) => ({
+        project: p,
+        slug: p.id.replace(/\.(md|mdx)$/, "").toLowerCase(),
+    }));
 ---
 
 <section class="mb-20">
     <h1
         class="text-2xl font-extrabold"
-        style="text-align:center; font-family: Quicksand; margin-bottom: 50px;"
+        style="text-align:center; font-family: Quicksand; margin-bottom: 12px;"
     >
-        Projects (currently moving things around 👷‍♂️)
+        {title}
     </h1>
+    <p
+        class="text-center text-neutral-500 dark:text-neutral-400 mb-12"
+        style="font-family: Roboto Condensed;"
+    >
+        {description}
+    </p>
     <div
         class="grid gap-6 grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
     >
-        {projects.map((project) => <ProjectCard project={project} />)}
+        {
+            projects.map(({ project, slug }) => (
+                <ProjectCard project={project} slug={slug} />
+            ))
+        }
     </div>
 </section>
-
-{projects.map((project) => <ProjectPreview project={project} />)}
-
+{
+    projects.map(({ project, slug }) => (
+        <ProjectPreview project={project} slug={slug} />
+    ))
+}
 <script>
     document.querySelectorAll(".project-card").forEach((card) => {
         card.addEventListener("click", () => {

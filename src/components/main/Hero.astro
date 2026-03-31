@@ -2,6 +2,7 @@
 import PillLink from "../general/PillLink.astro";
 import Spacer from "../general/Spacer.astro";
 import CvIcon from "../../assets/images/icons/cv.png";
+import CvEnIcon from "../../assets/images/icons/cv-en.png";
 import CodeIcon from "../../assets/images/icons/code.png";
 import MailIcon from "../../assets/images/icons/mail.png";
 import Typewriter from "astro-typewriter";
@@ -50,9 +51,16 @@ import Typewriter from "astro-typewriter";
             behavior="same"
         />
         <PillLink
-            href="/files/cv/cv.pdf"
-            label="Download CV"
-            width="160px"
+            href="/files/cv/cv-en.pdf"
+            label="CV (EN)"
+            width="140px"
+            logoSrc={CvEnIcon}
+            behavior="download"
+        />
+        <PillLink
+            href="/files/cv/cv-nl.pdf"
+            label="CV (NL)"
+            width="140px"
             logoSrc={CvIcon}
             behavior="download"
         />
