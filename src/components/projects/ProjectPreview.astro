@@ -11,6 +11,7 @@ import CalendarLogo from "@assets/images/icons/calendar.svg";
 import { Image } from "astro:assets";
 import Video from "../visuals/Video.astro";
 const link = project.data.link ?? `/projects/${slug}`;
+const link_label = project.data.link_label;
 const iconMap = {
     steam: SteamLogo,
     itch: ItchLogo,
@@ -62,20 +63,24 @@ const iconMap = {
                                 alt={project.data.title}
                                 width={640}
                                 height={360}
-                                class="w-full h-[160px] sm:h-[280px] md:h-[480px] object-cover"
+                                class="w-full h-[160px] sm:h-[280px] md:h-[360px] object-cover"
                             />
                         )
                     }
                 </div>
 
                 <div class="mt-4 pb-2 flex flex-wrap gap-3 justify-start">
-                    <PillLink
-                        href={`${link}`}
-                        label="Full project"
-                        width="140px"
-                        behavior="new"
-                        Logo={ExternalLogo}
-                    />
+                    {
+                        project.data.link !== "none" && (
+                            <PillLink
+                                href={`${link}`}
+                                label={project.data.link_label ?? "Full project"}
+                                width="140px"
+                                behavior="new"
+                                Logo={ExternalLogo}
+                            />
+                        )
+                    }
 
                     {
                         project.data.github && (
