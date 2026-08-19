@@ -1,0 +1,9 @@
+# Cloudflare Pages header rules.
+#
+# Files under public/ are served with their original names (no build hash), so
+# they get no long-lived caching by default. The gaze tiles are effectively
+# content-addressed -- gaze_px5p0_py2p5_512.webp always holds that exact pose --
+# so they are safe to pin. FaceTracker fetches one of these each time the
+# pointer comes to rest, and this keeps that to a single fetch per tile ever.
+/images/faces/*
+  Cache-Control: public, max-age=31536000, immutable
