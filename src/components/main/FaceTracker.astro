@@ -1,5 +1,8 @@
 ---
-import spriteImg from "../../assets/images/faces/face-sprite-13x13-256.webp";
+// Swap the suffix to -256 to fall back to the smaller sheet; the component is
+// resolution-agnostic (it positions the sheet in percentages), so nothing else
+// needs to change. See tools/generate-face-sprite.sh for the trade-off.
+import spriteImg from "../../assets/images/faces/face-sprite-13x13-512.webp";
 
 const {
     basePath = "/images/faces/",
